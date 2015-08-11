@@ -6,7 +6,9 @@ This Cursed World
 
 Unlike its predecessor "The Black Road", TCW aims to provide an ARPG-style gameplay similar to that of the Diablo 2 mod Median XL while combining modern combat elements from games such as Diablo 3, Path of Exile, and World of Warcraft.
 
-Old Development Blog: http://d2tbr.com/
+Old Development Blog for TBR: http://d2tbr.com/
+Old Development Blog for TCW: https://moddota.com/forums/discussion/456/rpg-map/p1
+New Development Blog for TCW:
 
 We’re still looking to increase our modding team, so if you are interested in joining the project and think you can help in any area don’t hesitate to contact us.
 
