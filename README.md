@@ -4,7 +4,7 @@ This Cursed World
 
 *This Cursed World* is an ambitious project to provide the second persistent RPG world inside Dota 2.
 
-Unlike its predecessor "The Black Road", TCW aims to provide an ARPG-style gameplay similar to that of the Diablo 2 mod Median XL while combining modern combat elements from games such as Diablo 3, Path of Exile, and World of Warcraft.
+Unlike its predecessor "The Black Road", TCW aims to provide an ARPG-style gameplay similar to that of the Diablo 2 mod Median XL while combining modern role playing elements from games such as Diablo 3, Path of Exile, and World of Warcraft.
 
 Old Development Blog for TBR: http://d2tbr.com/
 Old Development Blog for TCW: https://moddota.com/forums/discussion/456/rpg-map/p1
