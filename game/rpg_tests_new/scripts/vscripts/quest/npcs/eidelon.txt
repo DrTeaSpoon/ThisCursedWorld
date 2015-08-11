@@ -1,0 +1,43 @@
+"Interact"
+{
+	"name" "Dire Eidelon"
+	"text" "Who goes here"
+	"portrait" ""
+	"options"
+	{
+		"first"
+		{
+			"img" "/chat"
+			"text" "I wish to speak to the one named 'Frank'"
+			"goto"  
+			{
+				"text" "Frank is I."
+				"portrait"  " "
+				"options" 
+				{
+					"first"
+					{
+						"text" "but.. wait..."
+						"img" "/chat"
+						"goto"
+						{
+							"shortcut" "root"
+						}
+					}
+					
+					"second"
+					{
+						"text" "Your car lights are on"
+						"img" "/chat"
+						"goto"
+						{
+							"shortcut" "root"
+							"text" "F*K!"
+							"portrait" ""
+						}
+					}
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,31 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/mmoui/inventory.css" />
+		<include src="file://{resources}/styles/custom_game/ability_shared.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/inventory_item.js" />
+	</scripts>
+	<Panel class="ItemPanel" draggable="true">
+		<Button id="ItemButton">
+			<Panel id="ItemImageClip">
+				<DOTAItemImage  id="ItemImage" scaling="stretch" />
+			</Panel>
+			<Panel id="Cooldown">
+				<Panel id="CooldownOverlay" />
+				<Label id="CooldownTimer" />
+			</Panel>
+			<Label class="Charges" id="ChargeCount" />
+			<Label class="Charges" id="AltChargeCount" />
+			<Panel id="DropTargetHighlight" />
+			<Image id="UnidImage" src="file://{images}/custom_game/mmobar/unidentified.png" />
+			<Image id="HighlightImage" src="file://{images}/custom_game/mmobar/portrait_border_yellow.tga" visible="false" />
+			<Image id="BorderImage" src="file://{images}/custom_game/mmobar/portrait_border.tga" />
+		</Button>
+		<Panel id="Hotkey">
+			<Label id="HotkeyText" />
+		</Panel>
+		
+	</Panel>
+</root>

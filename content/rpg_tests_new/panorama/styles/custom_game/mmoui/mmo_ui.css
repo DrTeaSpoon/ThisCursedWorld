@@ -1,0 +1,269 @@
+@define WidthOfBar: 200px;
+/* TARGETUI */
+#compiling{
+	visibility: collapse;
+}
+#TargetPanel{
+	flow-children: down; 
+	width: 652px; 
+	height: 300px;
+	vertical-align: top;
+	horizontal-align: center;
+	margin-top: 50px;
+}
+
+#TargetName{
+	font-size: 96px;
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: -50px;
+	color: white;
+	text-shadow: 0px 0px 7px 6.0 #000000ff;
+
+}
+
+#TargetHealthBar{
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+#TargetHealthBarBackground{
+	vertical-align: center;
+}
+
+#THBCContainer{
+	vertical-align: center;
+	horizontal-align: left;
+}
+
+#TargetHealthBarColor{
+	vertical-align: center;
+	background-color: red;
+	horizontal-align: center;
+}
+
+#TargetHealthBarText{
+	font-size: 18px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-bottom: 15px;
+	text-shadow: 0px 0px 7px 3.0 #000000ff;
+}
+
+#TargetHealthBar{
+	font-size: 48px;
+}
+
+#TargetAbilities{
+	font-size: 24px;
+	vertical-align: top;
+	horizontal-align: center;
+	margin-top: -30px;
+	text-shadow: 0px 0px 7px 5.0 #000000ff;
+}
+
+/*END TARGET */
+
+.rootPanel{
+	margin-top: -500px;
+	horizontal-align: center;
+	vertical-align: bottom;
+	width: 100%;
+	height: 100%;
+}
+
+#gold{
+
+	horizontal-align: center;
+	vertical-align: top;
+	background-color: #222222FF;
+	margin-left: 1000px;
+	height: 42px;
+	width: 100px;
+	flow-children: right;
+}
+
+#goldImage{
+	margin-left: 5px;
+	width: 35px;
+	height: 35px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+
+#goldLabel{
+	margin-top: 3px;
+	margin-left: 2px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+#expBar{
+	horizontal-align: center;
+	vertical-align: bottom;
+	width: 400px;
+	height: 5px;
+	margin-bottom: 20px;
+	margin-left: 15px;
+}
+
+#expLeft{
+	background-color: #333333FF;
+	width: 500px;
+	height: 50px;
+}
+
+#expDone{
+	background-color: #DDFF33FF;
+	width: 300px;
+	height: 50px;
+}
+
+#MMOUI{
+	horizontal-align: center;
+	vertical-align: bottom;
+	height: 1000px;
+}
+
+#base{
+	margin-left: 255px;
+	vertical-align: bottom;
+	margin-bottom: 0px;
+	width: 640px;
+}
+
+#baseImg{
+	width: 640px;
+}
+
+#quickbar{
+	margin-left: 290px;
+	margin-bottom: 15px;
+	vertical-align: bottom;
+}
+
+#orbLeftFill{
+	width: 172px;
+	height: 172px;
+	margin-left: 0px;
+	vertical-align: center;
+	horizontal-align: center; 
+}
+
+#orbRightFill{
+	width: 172px;
+	height: 172px;
+	margin-left: 0px;
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+
+#demon{
+	vertical-align: bottom;
+	-s2-mix-blend-mode: multiply;
+	margin-bottom: -0px;
+}
+
+#orbLeft{
+	width: 200px;
+	height: 200px;
+	vertical-align: bottom;
+	margin-left: 150px;
+	margin-bottom: -5px;
+	-s2-mix-blend-mode: multiply;
+}
+
+.galaxy{
+}
+
+
+#orbLeftText{
+	font-size: 48px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+#orbRightText{
+	font-size: 48px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+#addSkills{
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-bottom: 170px;
+	margin-right: 320px;
+}
+
+#addSkillsBorder{
+	width: 60px;
+	height: 40px; 
+}
+
+.addSkillsButtonDead{
+
+	background-color: #333333ff;
+}
+
+.addSkillsButtonAlive{
+	background-color: #ffff33ff;
+}
+
+#addSkillsButton{
+	width: 56px;
+	height: 34px; 
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.addSkillsButtonAlive:hover{
+	background-color: #dddd00ff;
+}
+
+.addSkillsButtonAlive:active{
+	background-color: #999900ff;
+}
+
+#addSkillsLabel{
+	horizontal-align: center;
+	font-size: 36px;
+	margin-top: -3px;
+	margin-left: 0px;
+	margin-right: 2px;
+	margin-bottom: 0px;
+	color: #000000;
+}
+
+#orbRight{
+	width: 200px;
+	height: 200px;
+	vertical-align: bottom;
+	margin-left: 808px;
+	margin-bottom: -5px;
+}
+
+#angel{
+	margin-left: 635px;
+	margin-bottom: 0px;
+	vertical-align: bottom;
+}
+
+#buttonsPanel
+{
+	flow-children: right;
+	margin-bottom: 31px;
+	margin-left: 367px;
+	vertical-align: bottom;
+	
+}
+#itemsPanel
+{
+	horizontal-align: left;
+	vertical-align: bottom;
+	margin-bottom: 93px;
+	margin-left: 400px;
+	
+	flow-children: right;
+}
+

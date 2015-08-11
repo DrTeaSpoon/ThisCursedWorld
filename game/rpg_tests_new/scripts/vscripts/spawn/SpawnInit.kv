@@ -1,0 +1,52 @@
+"SpawnSetup"
+{
+	
+	"Worlds"
+	{
+		"StarterForest"
+		{
+			"TriggerNode" "trigger_starter_forest"
+			"NodePattern" "node_starter_forest_"
+			"NodeCount" "7"
+			
+			"SpawnGroups"
+			{
+				"npc_dota_kobold"
+				{
+					"countWeight" "1"
+					"chanceWeight" "1"
+					"max" "10"
+					"level" "5"
+				}
+
+				"npc_dota_kobold_taskmaster"
+				{
+					"weight" "2"
+					"max" "20"
+					"level" "10"
+				}
+
+				"Wolves"
+				{
+					"weight" "5"
+					"max" "5"
+
+					"units"
+					{
+						"npc_dota_wolf"
+						{
+							"count" "1"
+							"level" "1"
+						}
+
+						"npc_dota_dire_wolf"
+						{
+							"count" "2"
+							"level" "101"
+						}
+					}
+				}
+			}
+		}
+	}
+}

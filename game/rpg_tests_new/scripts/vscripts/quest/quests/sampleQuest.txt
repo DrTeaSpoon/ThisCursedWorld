@@ -1,0 +1,114 @@
+"Quest:SampleQuest"
+{
+	"name" "Fall of Ankhar"
+	"identifier" "quest_what_is_happening"
+	"minLevel" "0"
+	"defaultActive" "false"
+	"partySize" "0-10"
+
+	"prereqs"
+	{
+		"type" "trigger"
+		"target" "hasCompletedRequiemTrials"
+		"hint" "Complete the Requiem Trials before advancing to Ankhar"
+	}
+
+	"starters"
+	{
+		"flag"
+		{
+			"type" "interact"
+			"target" "first_npc_traveller"
+		}
+		"item"
+		{
+			"type" "item" 
+			"target" "flag_SampleQuest_Starter"
+		}
+	}
+
+	"stages"
+	{
+		"Stage1"
+		{
+			"PickupSwordOfLegit"
+			{
+				"type" "itemType"
+				"target" "item_sword_of_legit"
+				"text" "Equip the Sword of Legit"
+				"hint" "The sword of legit is found with rainbows"
+				"ping" "555,525"
+			}
+		}
+		"Stage2"
+		{
+			"say" "Here is a bowl of soup. Go collect me some shrimp nuggets and a shrimp finger"
+			"HeresSomeFood"
+			{
+				"type" "itemBounty"
+				"text" "Potions of Health Collected: %c/%m"
+				"hint" "Potions of health can be bought from dat guy"
+				"target" "item_health_potion_of_health"
+				"count" "5"
+			}
+			"KillFiveShrimp"
+			{
+				"text" "Baby Shrimp Killed: %c/%m"
+				"type" "killType"
+				"target" "creep_shrimp"
+			}
+			"GetFiveShrimpNuggets"
+			{
+				"text" "Shrimp Nuggets Retrieved: %c/%m"
+				"type" "itemType"
+				"target" "item_shrimp_nugget"
+				"count" "5"
+			}
+			"KillKingKush"
+			{
+				"text" "Kill King Kush"
+				"hint" "He be up on the high hills of Jamacia man'"
+				"type" "kill"
+				"target" "creep_king_kush"
+				"ping" "700,700"
+			}
+			"GetShrimpFinger"
+			{
+				"text" "Retrieve the Shrimp Finger"
+				"type" "itemType"
+				"target" "item_shrimp_finger"
+				"ping" "700,700"
+			}
+		}
+		"Stage3"
+		{
+			"ReturnShrimpFingers"
+			{
+				"type" "itemTypeTurnin"
+				"text" "Return the shrimp nuggets to Roshan"
+				"hint" "stuff"
+				"target" "item_shrimp_nugget"
+				"count" "5"
+				"ping" "500,500"
+				"reciever" "npc_roshan"
+			}
+		}
+		"Stage4"
+		{
+			"say" "Here you are. Delicious!"
+			"bounty"
+			{
+				"type" "itemBounty"
+				"target" "item_shrimp_nugget_consumable"
+				"count" "5"
+			}
+		}
+		"onFinish"
+		{
+			"expReward" "1200"
+			"goldReward" "1000"
+			"woodReward" "500" 
+		}
+
+	}
+}

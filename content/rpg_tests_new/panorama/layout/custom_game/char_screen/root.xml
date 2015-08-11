@@ -1,0 +1,70 @@
+<root>  
+       
+	<styles>       
+		<include src="file://{resources}/styles/custom_game/char_screen/root.css" />
+		<include src="file://{resources}/styles/custom_game/char_screen/stats.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>       
+	          
+	<scripts> 
+		<include src="file://{resources}/scripts/custom_game/char_screen/root.js" />
+	</scripts>       
+	    
+		
+	<Panel>
+		<Button id="ClickyButton" onactivate="$('#root').visible = !$('#root').visible"> 
+			<Label text="CHARACTER SCREEN" />
+		</Button>
+	
+		<Panel id="root" class="rootPanel" hittest="false">
+			
+			<Panel id="Background" hittest="false">
+				<Image id="BackgroundImage" hittest="false" src="file://{images}/custom_game/char_screen/D3Version.png" />
+				<Panel id="MenuButtons">
+					<Button id="StatsButton" class="menuButton" onactivate="ToStats()" >
+						<Label class="ButtonLabel" text="STATS" />
+					</Button>
+					
+					<Button id="SkillsButton"  class="menuButton">
+						<Label class="ButtonLabel" text="SKILLS" />
+					</Button>
+					
+					<Button id="TalentsButton"  class="menuButton">
+						<Label class="ButtonLabel" text="TALENTS" />
+					</Button>
+					
+					<Button id="InventoryButton" class="menuButton" onactivate="ToInventory()" >
+						<Label class="ButtonLabel" text="INVENTORY" />
+					</Button>
+					
+					<Button id="CraftingButton" class="menuButton">
+						<Label class="ButtonLabel" text="CRAFTING" />
+					</Button>
+					<Button id="FollowersButton" class="menuButton">
+						<Label class="ButtonLabel" text="FOLLOWERS" />
+					</Button>
+					<Button id="QuestButton" class="menuButton">
+						<Label class="ButtonLabel" text="QUESTS" />
+					</Button>
+					<Button id="MapButton" class="menuButton">
+						<Label class="ButtonLabel" text="MAP" />
+					</Button>
+					<Button id="OptionsButton" class="menuButton">
+						<Label class="ButtonLabel" text="OPTIONS" />
+					</Button>
+				</Panel>
+				
+				<Panel id="ContentPanel">
+				
+				</Panel>
+				
+			</Panel>
+			
+			
+				
+		
+		</Panel>
+	</Panel>
+	
+</root>
+ 

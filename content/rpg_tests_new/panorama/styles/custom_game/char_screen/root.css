@@ -1,0 +1,103 @@
+#ClickyButton{
+	margin-left: 300px;
+	margin-top: 10px;
+	background-color: #ffff00ff;
+}
+
+
+.rootPanel{
+	width: 1920px;
+	height: 1080px;
+	vertical-align: center;
+	horizontal-align: center;
+	flow-children: down;
+}
+
+.ButtonLabel{
+	horizontal-align: center;
+	vertical-align: center;
+	margin-top: 10px;
+	font-size: 36px;
+	color: orange;
+}
+
+#Background{
+	width: 1920px;
+	height: 1920px;
+}
+
+#BackgroundImage{
+	vertical-align: center;
+	horizontal-align: center;
+	width: 1600px;
+	height: 1030px;
+}
+/*base margin 0px div margin 10px */
+#StatsButton{ 
+	margin-bottom: 618px;
+}
+#SkillsButton{ 
+	margin-bottom: 548px;
+}
+#TalentsButton{ 
+	margin-bottom: 475px;
+
+}
+#InventoryButton{ 
+	margin-bottom: 410px;
+
+}
+
+#CraftingButton{  
+	margin-bottom: 341px;
+
+}
+#FollowersButton{ 
+	margin-bottom: 272px;
+
+}
+#QuestButton{ 
+	margin-bottom: 203px;
+
+}
+
+#MenuButtons{
+	vertical-align: bottom;
+	margin-bottom: -15px;
+}
+
+#MapButton{ 
+	margin-bottom: 134px;
+
+}
+#OptionsButton{
+	margin-bottom: 65px;
+
+}
+
+#ContentPanel{
+	vertical-align: top;
+	horizontal-align: center;
+	margin-top: 150px;
+	margin-left: 410px;
+	height: 850px;
+	width: 990px;
+}
+.menuButton{
+	background-image: url("file://{images}/custom_game/char_screen/dormantButton.png");
+	vertical-align: bottom;
+	horizontal-align: left;
+	background-repeat: round;
+	margin-left: 280px;
+	width: 365px;
+	height: 70px;
+}
+
+.menuButton:hover{
+	background-image: url("file://{images}/custom_game/char_screen/hoverButton.png");
+}
+
+.menuButton:active{
+	background-image: url("file://{images}/custom_game/char_screen/clickedButton.png");
+}
+

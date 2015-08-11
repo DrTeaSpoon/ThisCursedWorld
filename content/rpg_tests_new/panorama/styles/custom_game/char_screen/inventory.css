@@ -1,0 +1,145 @@
+#RootPanel{
+	height: 850px;
+	width: 990px;
+}
+
+#Background{ 
+	background-image: url("file://{images}/custom_game/char_screen/inventory/berserker.png");
+	background-repeat: round;
+	width: 1020px;
+	height: 470px;
+	margin-left: -15px;
+	margin-top: -35px;
+	margin-right: -22px;
+	border-bottom: 9px solid #000000FF;
+	
+} 
+
+#EquipmentOverhead{
+	width: 990px;
+	flow-children: right;
+}
+#EquipmentPanel{
+	width: 550px;
+	height: 400px;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+#InventoryPanel{
+	height: 450px;
+	vertical-align: bottom;
+	flow-children: down;
+	margin-bottom: -60px;
+	margin-left: 7px;
+}	
+
+#LeftEquipmentPanel{
+	flow-children: down;
+}
+
+#RightEquipmentPanel{
+	flow-children: down;
+	horizontal-align: right;
+}
+
+#BottomEquipmentPanel{
+	flow-children: right;
+	vertical-align: bottom;
+	width: 550px;
+}
+
+#BottomLeftEquipmentPanel{
+	flow-children: right;
+	horizontal-align: left;
+	margin-left: 100px;
+}
+
+#BottomRightEquipmentPanel{
+	flow-children: right;
+	horizontal-align: right;
+	margin-right: 100px;
+}
+
+#CharmsPanel{
+	flow-children: down;
+	width: 300px;
+	height: 400px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.CharmRow{
+	height: 64px;
+	width: 300px;
+	flow-children: right;
+}
+
+.InventoryRow{
+	height: 64px;
+	width: 971px;
+	flow-children: right;
+}
+
+.InventoryItem{
+	width: 64px;
+	height: 64px;
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+	background-repeat: round;
+}
+
+.Charm{
+	width: 64px;
+	height: 64px;
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+	background-repeat: round;
+}
+
+.Equipment{
+	width: 64px;
+	height: 64px;
+	background-repeat: round;
+}
+
+#Helm{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+}
+#Shoulders{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBracers.TGA");
+}
+#Chest{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNArmor.TGA");
+}
+#Gloves{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNGloves.TGA");
+}
+#Pants{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNPants.TGA");
+}
+#Necklace{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryAmulet.TGA");
+}
+#RingLeft{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.TGA");
+}
+#RingRight{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.TGA");
+}
+#Belt{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryBelt.TGA");
+}
+#Boots{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBoots.TGA");
+}
+#WeaponLeft{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponLeft.TGA");
+}
+#SoulLeft{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.TGA");
+}
+#WeaponRight{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponRight.TGA");
+}
+#SoulRight{
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.TGA");
+}

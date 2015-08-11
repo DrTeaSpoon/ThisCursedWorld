@@ -1,0 +1,42 @@
+"Interact"
+{
+	"name" "Flying Courier"
+	"text" "Pleep ploop I'm a courier!"
+	"portrait" ""
+	"options"
+	{
+		"first"
+		{
+			"img" "/chat"
+			"text" "What can you tell me about bacon"
+			"goto" 
+			{
+				"text" "<tag:'redHighlight'> Bacon? <b>WHAAAAAAAAAAAAAT?!?</b>"
+				"portrait" ""
+				"options"
+				{
+					"first"
+					{
+						"text" "SORRY! DIDNT MEAN IT"
+						"img" "/chat"
+						"goto"
+						{
+							"shortcut" "root"
+						}
+					}
+					"second"
+					{
+						"text" "Mm, bacon."
+						"img" "/chat"
+						"goto"
+						{
+							"shortcut" "root"
+							"text" "Oh, you bitch"
+							"portrait" ""
+						}
+					}
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,47 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/dotastyles.css" />
+		<include src="file://{resources}/styles/custom_game/mmoui/inventory_tooltip.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/mmoui/inventory_tooltip.js" />
+	</scripts>
+	<Panel class="Tooltip" hittest="false">
+			<Panel id="titlePanel">
+				<Panel id="ItemImagePanel" >
+					<Panel id="ItemImageContainer">
+						<DOTAItemImage hittest="false" id="ItemImage" scaling="stretch" />
+					</Panel>
+					<Image id="UnidImage" src="file://{images}/custom_game/mmobar/unidentified.png" />
+				</Panel>
+				<Panel hittest="false" id="titlePanelTextPanel" >
+					<Label hittest="false"  id="ItemName" text="" />
+				</Panel>
+			</Panel>
+			<Label hittest="false"  id="ItemDesc" text="" />
+			<Panel hittest="false"  id="AbilSpecial" />
+			<Panel  hittest="false" id="Costs"  >
+				<Panel hittest="false"  id="Cooldown" class="CostPanel" >
+					<Image hittest="false" id="CooldownImage" class="CostImage" src="file://{images}/custom_game/mmobar/cooldown.png" />
+					<Label hittest="false" id="CooldownText" class="CostText" />
+				</Panel>
+				
+				<Panel id="ManaCost" hittest="false" class="CostPanel">
+					<Image hittest="false" id="ManaCostImage" class="CostImage" src="file://{images}/custom_game/mmobar/manaCost.png" />
+					<Label  hittest="false" id="ManaCostText"  class="CostText" />
+				</Panel>
+				
+				<Panel hittest="false" id="GoldCost" class="CostPanel">
+					<Image hittest="false" id="GoldCostImage" class="CostImage" src="file://{images}/custom_game/mmobar/gold.png" />
+					<Label  hittest="false" id="GoldCostText"  class="CostText" />
+				</Panel>
+				
+				<Panel hittest="false" id="HealthCost" class="CostPanel">
+					<Image hittest="false" id="HealthCostImage" class="CostImage" src="file://{images}/custom_game/mmobar/gold.png"/>
+					<Label  hittest="false" id="HealthCostText"  class="CostText" />
+				</Panel>
+			</Panel>
+			<Label  hittest="false" id="ItemLore" />
+			<Label  hittest="false" id="SellPrice" />
+		</Panel>
+</root>

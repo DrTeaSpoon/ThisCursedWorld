@@ -1,0 +1,9 @@
+
+#ItemImage{
+	background-color: white;
+	clip: rect(10%, 10%, 50%, 50%);
+}
+
+#ItemButton{
+	clip: rect(0%, 8%, 100%, 50%);
+} 

@@ -1,0 +1,198 @@
+.QuestRoot{
+	width: 500px;
+	height: 700px;
+	margin: 75px 5px 5px 30px;
+	border: 3px solid #111111FF;
+	border-radius: 5px;
+}  
+
+
+#QuestTitle{
+    color: #cccccc;
+    font-size: 64px;
+    margin-left: 10px;
+	margin-top: -3px;
+	margin-bottom: -10px;
+    text-transform: uppercase;
+    vertical-align: center; 
+}
+
+#QuestLog{
+	opacity: 1;
+	margin-left: -2px;
+	margin-top: -4px;
+	width: 80px; 
+	height: 80px;
+	margin-bottom: -10px;
+}
+
+
+#Stuff{
+	margin-top: 0px;
+	flow-children: down;
+}
+
+#Background{
+	width: 500px;
+	height: 700px;
+	opacity: 0.65; 
+	background-image: url("file://{images}/custom_game/background.png");
+	background-repeat: round;
+}
+#Compiling{
+	width: 0%;
+	height: 0%;
+}
+  
+.QuestRootSmall{
+	height: 75px;
+}
+
+#Title{
+	flow-children: right;
+}
+
+#MiniPanel{
+	background-color: rgba(37,41,47,200);
+	box-shadow: -8px -8px 30px 15px;
+	margin-left: 18px;
+	margin-top: 13px;
+}
+
+#MiniPanel:hover{
+	background-color: rgba(37,41,47,255);
+}
+
+#MiniPanel:active{
+	background-color: rgba(37,41,155,225);
+}
+
+
+#MiniLabel{
+	font-size: 32px;
+	color: #ffffff;
+}
+
+#ContainerPanel{
+	width: 500px;
+	margin: 0px 0px -4px 0px;
+	height: 622px;
+	flow-children: down;
+	overflow: squish scroll;
+}
+
+.PanelHeader{
+	font-size: 18px;
+	color: #fcaf3d;
+}
+
+
+.QuestPanel{
+	margin: 1px 13px 10px 5px;
+	background-color: rgba(37,41,47,200);
+	flow-children: down;
+	width: 100%;
+}
+
+
+.QuestHeader{
+	font-weight: bold;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-left: 5px;
+	color: #eeeeee;
+}
+
+.QuestHeaderPanel{
+	flow-children: right;
+	width: 470px;
+}
+
+.QuestHeaderDefault{
+	font-weight: bold;
+	font-size: 24px;
+	text-transform: uppercase;
+	margin-left: 5px;
+	margin-top: 2px;
+	color: #eeeeee;
+	text-shadow: 0px 0px 0px 0 #ffffffff;
+	transition: text-shadow 0s ease-in 0s;
+}
+ 
+.QuestHeaderGreen{        
+	text-shadow: 0px 0px 7px 1.0 #93ff9388;
+	color: #93ff93;
+}
+
+.QuestHeaderOrange{
+	text-shadow: 0px 0px 7px 1.0 #ffd70088;
+	color: #ffd700;
+}
+
+.QuestHeaderViolet{
+	text-shadow: 0px 0px 7px 1 #ff00ff55;
+	color: #ff00ff;
+}
+
+.QuestHeaderBlue{
+	text-shadow: 0px 0px 7px 1.0 #ff333388;
+	color: #ff3333;
+}
+
+.QuestHeaderRed{
+	text-shadow: 0px 0px 7px 1.0 #ff333388;
+	color: #ff3333;
+}
+
+.QuestLineContainer{
+	margin: 4px, 4px, 4px, 4px;
+	width: 500px;
+	flow-children: down;
+}
+
+.QuestLine{
+	font-size: 24px;
+	color: #cccccc;
+	margin-left: 15px;
+    vertical-align: center;
+}
+.QuestLineSlashed{
+	color: #777777;
+	font-size: 24px;
+	text-decoration: line-through;
+}
+
+.MinierPanel{
+	background-color: rgba(37,41,43,200);
+	box-shadow: -8px -8px 30px 15px;
+	margin-left: 50px;
+	margin-top: 2px;
+	horizontal-align: right; 
+}
+
+.MinierPanel:hover{
+	background-color: rgba(155,155,155,200);
+}
+
+.MinierPanel:active{
+	background-color: rgba(37,41,155,225);
+}
+
+.MinierPanelLabel{
+	font-size: 24px;
+	color: #ffffff;
+}
+
+.QuestLinePanel{ 
+	background-color: rgba(24,28,33,100);
+	flow-children: down; 
+	width: 100%;
+}  
+
+ 
+.QuestSubLine{
+	font-size: 16px;
+	margin-left: 48px;
+	color: #999999;
+    vertical-align: center;
+}

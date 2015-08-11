@@ -1,0 +1,35 @@
+berserker-
+phase shift - on hit (5% hit, 5% hp lost) gain a buff that increases magic resistance by 5% and reduces physical resistace by 5%
+
+temporal mend - activate phase shift (decreases cd on level)
+
+doesnt require-
+phase hit - hit, has a chance to apply a slow debuff
+crawling hit - hit that launches a ghost that bounces between targets and has a chance to apply a curse
+cleave - 60%
+
+
+jump - jumps towards target , delain burst damage and aggroing all mbos to point
+Heralding Call - aggros all nearby
+Phase Aura - gain a shield that has armor
+Wolf Hit - lands an attack that sends spirit wolves in a cone
+phase smash - removes all debuffs on target and deals aoe damage per debuff
+windwalk - idfk
+spirit axes - hit creates a nova of axes
+calldown - calls a meteor above all neaeby targets head
+
+
+greater phase shft - 15% hp loss 3% on hit
+call of the ancients
+meteor smash
+
+ultimate- soul tap- turns all nearby units into phase shift mode. attaking them turns your hero into phaseshift mode. bosses gain phaseshift mode 5x
+
+summoning tree beastmaster-
+boars
+wolves
+bears
+tame pet
+totemic call- dmg
+totemic call - life
+totemic call - nova

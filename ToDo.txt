@@ -1,0 +1,292 @@
+If you want to contribute to this project, here is a list of all the remaining tasks, with an explanation on how and where to continue.
+All categories are basically independant from each other and in no particular order so you can work on whichever you feel like it.
+Last Updated: 1st December.
+
+	- Hero Abilities - Polishing left
+		Find and fix all occurrences of TODO in npc_abilities_custom
+		Review every tooltip to use AbilitySpecials, might need to change some spells that don't have them:
+		  	We need to rewrite every "damages by xxx" WC3 style tooltip to a Dota style of tooltip (only static values go in the _Description, while the variable values each go in a separate line, which is taken from AbilitySpecials). This way to change ability values like damage or debuff duration we only need to change the AbilitySpecial var, instead of Code & Tooltips.
+	
+	- Extra Hero Abilities - Including TBR 1.4 Concepts:
+		Define a Class Skill for all heroes
+			Each hero should have 3 active starting skills (which are already done) and 1 "Class Skill" type of ability that goes with the hero theme. 
+			Check the file to find some possible passives or design your own. Currently Magician (Preparation), Temple Guardian (Pray) Ranger (Soul Piercing Shots) and Warlord/Assassin (Boring copied crit) have them.
+		Define alternative 5th and 6th abilities for every hero (refered as Journeyman and Ultimate abilities)
+			Each hero should have 2 optional spells, meaning 1 extra option of the 5th and 6th slots. Again you can check the 1.4 Concepts or make your own, try to find a theme/path to differentiate both spells.
+			For example, a class could have a path between supporting and more spell damage(Guardian of Nature Tranquility/Cataclysm), choice between caster and physical damage (Druid Spirit Form/Summon Totems), choosing between boosting your own damage/defenses vs party boost (so if someone normally plays solo/duo, the party buffs aren't as attractive), etc.
+
+	- Item Functionality
+		Most permanent stat boosting items are implemented, need to find and fix all ocurrences of TODO in npc_items_custom
+		Missing all the consumables, recipes and crafting related items.
+		For crafting items will multiple components, we need to try to reutilize the dota recipe system as best as possible before deciding if a custom Flash UI needs to be done.
+
+	- Item Restrictions
+		Add OnEquip RunScript ItemCheck (as detailed in the beginning of npc_items_custom) which looks for the item name inside maps/item_info.kv table file to eject it from the hero inventory if any restriction isn't met
+		Level Restriction is implemented but the table is incomplete, we need to go through every item adding the proper level number to the levelRequired table. Check the item database sorted by name in Resources.txt 
+		Class Restriction is implemented through the warRestricted value in the table, which is binary true/false check. 
+			The same concept needs to be extended for items that are only usable by a particular class (instead of warRestricted which means "cannot be used by this 4 Warrior Classes"). 
+			This is similar to how the "professionRequired" value works, so you just need to add something like "classRequired" "Druid" for each item and add the appropiate check inside the ItemCheck function in items.lua
+		Profession Restriction is implemented but the Profession system itself isn't, it's just doing a hero.profession = "None" placeholder in the main lua file for now. The item_info Table can still be filled appropiately.
+		Unique item restriction is not started yet, but it can follows a similar concept (ItemCheck all items in the hero inventory, if we find a copy, eject it)
+
+	- Item Sets
+		Give bonuses when particular items are together in the player's inventory. Most of the TODO lines in the missing item functionalities are this type of function.
+		This can be done in two ways:
+			OnEquip RunScript function on each set item to check if the other item pieces are there, if so, apply the bonus modifier. Would also need a OnUnequip RemoveModifier or lua function to remove the bonus.
+				Probably the better way for most sets, but those that give Spell/Healing power need to be considered inside the AdjustSpellPower lua (which constantly adjusts the spell & healing power as listed on item_info)
+			Inside ModifyStatBonuses lua thinker (tbr.lua), have a CheckForItemSets function that constantly checks for all of them (in the same style of the AdjustSpellPower function). An item_sets_info table could be used.
+				Kinda expensive and complicated, but might be needed if the first option doesn't work properly.
+
+	- Stat System - Flash UI
+		ResourcePanel.as needs to hide the button to skill INT for Warrior Classes (Barbarian, KC, Assassin, Warlord). The hero.class can seen in the game API, so this should be trivial Action Script
+		An artistic improvement of the buttons would be nice, adding sounds, hiding after deselecting the hero (not sure if possible), etc. The folder FlashUI Source has some photoshop and images to work with, plus CustomUI.fla
+	
+	- Skill System (Needs Brainstorming!)
+		In the TBRmap (which you can find in the repo), skills can't be learned through the normal Dota system. To start this up, add DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE to the AbilityBehavior key value in npc_abilities_custom
+		Most skills have up to 8 ranks. Dota supports up to 7 skill levels to show in the UI, so each skill will be done as 7 ranks with a separate lvl 8 skill with MaxLevel 1.
+		To actually upgrade the available spells, the wc3 system was purchasing Skill Books in a shop, one different for each skill upgrade, which when used after certain levels (7, 15, 30, 50, 85, 135 and the last one at 200) granted the hero an option to upgrade an ability to the next rank. This opened up a window with buttons to choose the abilities you could improve to a next rank when using that particular book
+		If you bought a lvl 4 book, and had 3 lvl 3 spells, it would give you 3 button options, if you had none to skill there wouldn't be an option at all and the book would be wasted (:D)
+		These systems could be improved to a more modern RPG style, with access to Flash Interfaces, while mantaining the general idea (you can't simply upgrade your spells after the required level)
+		The 5th ability slot is not available from the start, but was learned through purchasing another skill book available after level 5 (costs 500g)
+		Unlocking the 6th ultimate ability is not done through a book either, but each of the first 3 Titans will drop 1 spell book that contained one random ultimate spell for each class (so there would be many useless tomes)
+		
+		A custom UI would be perfect. Check resource\flash3\FlashUI Source\Skill UI
+
+	- Units
+		Inside the WC3 units folder, you will find a huge parsed.txt file, which contains each unit with its base stats found in the Warcraft map in a Key Value format ready to copy to the npc_units_custom
+		There is also a Creeps file that has all the basic creeps, split by area.
+		For bosses, minibosses and other special units, check Data.txt which contains links with all the units found in the map, and open TBRmap.w3x in a World Editor.
+		With this file and info, you can implement every unit by just copying it to the txt and adding: Model, ModelScale, Projectile and if needed, the Creature AttachWearables block. Check "npc_shaman" for an example. 
+		Item numbers to attach wearables can be found in the items_game.txt which contains all the cosmetic codes (some might not be available in workshop tools yet). Models can be seen through Asset Browser.
+		Identify and add the Unit Abilities to code them later.
+		Unit Stat Gains per level is missing, this only applies for Boss-Hero units, check the stat gain in World Editor or just the Bestiary link in Data.txt to adjust the boss stats properly.
+
+	- Unit AI
+		For creeps to roam, add "vscripts" "creep_ai.lua", add the proper entities in the map, which contains the AI. In the lua, new areas need to be added just by copying the structure and adding the proper names.
+		Special Unit AI needs to be done after the unit spells and everything starts coming together.
+
+	- Backpack
+		Extra 6 slots that you can carry around, items are not saved. This was done as a little Wisp courier invulnerable that followed you around, you could use consumables through it and it would heal your main hero.
+			The first option is then to have a controllable unit similar to a courier
+			> Having a controllable unit with inventory is possible.
+		current version
+
+	- Bank
+		Originally this was 6 extra slots to store items between saves. Only accessible near in the city.
+			First option is to reuse the default dota stash system, but this is available from level 1 and we'd like it to be an unlockable feature for later levels.
+			The currently implemented npc_bank is very awkward, as the building needs to "rotate" to drag items.
+			Giving the Bank building 6 abilities, one to drop/eject/transfer each item. This is even more weird, and should be avoided.
+			Flash UI! The best option, which would be very flexible and also let us provide as many item slots as we want, unlocking
+				To implement this, have a look at Hook and Slice map, which has a great flash UI done for Inventory, with dragging and tooltips. The repo is github.com/Ractis/HookAndSlice
+				A great idea which opens up is to make the items in the Bank shareable within different characters in the same account, once Save/Load is in place. 
+
+	- Crafting Materials and Gold
+		Each creep Gold and Material drop values need to go in spawn_info.kv table, to support the party Gold/Mat share. 
+		Currently materialsToAssign is hardcoded to 322 inside crafting.lua, but it should instead just look through SpawnInfoKV[k] for the unit name and assign the materials established there.
+		The basic materials resource UI is done, just needs a slightly better art design.
+		Trading materials x gold UI is incomplete, need to fix the Flash UI using ReplaceWithValveComponent Action Scripts.
+		Max gold needs to be increased to 1 million somehow (Valve please)
+
+	- City Attacks
+		Configured similar to holdout waves. Difficulty based on Average Hero level.
+		Waves of Demons getting increasingly harder, starting every ~7 minutes up to 20 minutes per attack.
+		There's some work done in demon_wave_mode.lua and demon_wave_round.lua which are the basic holdout functions.
+		Investigate how to adjust this to the maps needs and how the difficulty increases with hero levels.
+
+	- Teleport Button (WIP Concept)
+		The Dota Glyph button is replaced by a Teleport button which opens a Diablo 2 Style portal and should teleport anyone who steps in to the latest city visited the party visited.
+		Finish the flash UI and add different teleport points and saves on the map.
+
+
+
+	==========================================
+	= Mechanics and Features Not Yet Started =
+	==========================================
+
+	- Profession Crafting	
+		Flash UI needed? Up to discussion
+		Try to reutilize the Item Reciepe system UI. Can also give the personal courier a botton to assemble items.
+		There are some recipes that require more than 5 items+Materials, but we can split them in 2 parts (as seen in the ares spear recipe example)
+		Some items like regalia you had to be near the NPC and click the button to combine.
+		You could craft anywhere with your selected profession. Only 1 profession, leveled by making items (progress bar to display this)
+
+	- Quests 
+		Will need a Flash UI, but the repeatable Kill-Quests can use the ingame system to start with (however, remember these quests are global, not player based)
+		A full review of all the quests can be found in the google site. Quests are very open to creative work after the system is implemented.
+
+	- Duel/PvP System
+		Make an arena area and Change to Multi-Team settings.
+		Possibly add an option for Free for All, 1v1, 2v2, etc.
+	
+	- Divine Armor
+		Divine armor takes only 10% dmg from all types of atacks. After this flat reduction of 90% the reduction from the armor value is also applied. Most bosses use this.
+		This was implemented in Enfos, check how it's done in their repo (github.com/D3luxe/Enfos) to see if we can reutilize it.
+
+	- Save/Load
+		Tough work!	Provide a persistent RPG system that allows players to load their hero data, connected to their SteamID.
+		Study the stat-rpg library and its Commands.as
+		Many internal tables and values need to be stored and changed appropiately, to have the data ready to be saved to a server at any time (for example someone leaves/disconnects)
+		Talk to SinZ and jimmydorry to implement it.
+
+	- Party System
+		Like Meepo UI for your current party
+		Give an option to hide HP bars and change the separators dynamically ( dota_health_per_vertical_marker dota_health_marker_major_alpha dota_health_marker_minor_alpha dota_hud_healthbar_number)
+
+	==========================================
+	=   Extra Features we should implement   =
+	==========================================
+
+	- Roll System
+		WoW Style, doesn't matter if someone picks the item as the ownership can be easily changed in lua. Flash UI for this, obviously.
+
+	- Trade System
+	
+	- Up to 5 players the game use Normal Difficulty, then 6 to 10 it's Heroic. Or any type of scaling difficulty.
+
+	- A Player Progress/Score UI which would track history of:
+		Creeps killed, Highest threat killed.
+		Bosses killed, how many times. Use the dota minimap icons.
+		Total Deaths (and to what)
+		PvP Ranking
+		Parties Shared (like a social thing)
+		Achievements (not sure how)
+		Make a score number with this and create Leaderboards!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WC3 codes:
+
+Assassin: E007
+	initial skills
+		Assassinate: A014
+		Walk in Shadows: A015
+		Crit: A0FT
+		Disable: A0BR
+	tome skills
+		Garrote: A017
+		Shadow Image: A0K6
+
+Ranger: H007
+	initial skills
+		Stun Shot: A03O
+		Soul-Piercing shot: A0FV
+		Black Arrow: A01M
+		Prevailing Winds: A0I7
+	tome skills
+		Puncture: A03J
+		Star Dust: A04G
+
+Warlord: O001
+	initial skills
+		Counter: A0KM
+		Critical: A0FT
+		Wind of War: A02B
+		Impale: A00G
+	tome skills
+		Bum Rush: A00J
+		Bleed: A04L
+
+Cleric: E001
+	initial skills
+		Fire of heaven: A00B
+		Holy Light: A00A
+		Regen: A009
+	tome skills
+		Cleansing Flame: A00D
+		Rebirth: A01T
+
+Druid: E008
+	initial skills
+		Rejuvenation: A01B
+		Nature's Wrath: A01J
+		Lightning Strike: A0JR
+	tome skills
+		Mind Blast: A01Q
+		Call Storm: A0K5
+
+
+Magician: H006
+	initial skills
+		Flash Point: A0K7
+		Frost Chain: A0KS
+		Flame Spire: A0BH
+	tome skills
+		Freezing Field: A0K4
+		Meteor Shower: A0C8
+
+Warlock: O00D
+	initial skills
+		Soul Drain (Warlock): A0I8
+		Death Wave: A0IO
+		Torment: A03D
+	tome skills
+		Blind: A047
+		Vengeance: A03E
+
+Barbarian: H004
+	initial skills
+		Mighty Stomp: A0JM
+		Cleave: A00C
+		Rend Armor: A005
+	tome skills
+		Taunt: A004
+		Blood Bath: A03U
+
+Nature Guardian:
+	initial skills
+		Roar: H01L
+		Tremor: A0II
+		Earth Shock: A0KE
+	tome skills
+		Cataclysm: A0HG
+		Nature's fury: A0KC
+
+Khaos Champion: E01K
+	initial skills
+		Shroud: A0KD
+		Shadow Scythe: A0IM
+		Grave Bind: A0IL
+	tome skills
+		Terrorize: AOae
+		Requiem: A0IC
+
+Spartan:
+	initial skills
+		Dispatch: A04K
+		Valor:  A00N
+		Throw Javelin: A0GQ
+	tome skills
+		Charge: A03G
+		Phalanx: A0CM
+
+Temple Guardian:
+	initial skills
+		Fire of Apollo: A05Y
+		Mark of Artemis: A05Z
+		Pray: A05U
+		Gift of the Gods: A05S
+	tome skills
+		Hammer of Zeus: A05X
+		Hestia's Touch: A065
+
+
+
+
+	

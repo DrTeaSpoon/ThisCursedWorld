@@ -1,0 +1,110 @@
+.StatButton{
+	width: 400px;
+	height: 102px;
+	vertical-align: top;
+	horizontal-align: left;
+	background-repeat: round;
+}
+
+.StatLabel{
+	vertical-align: center;
+	horizontal-align: center;
+	font-size: 48px;
+}
+
+.Header{
+	color: orange;
+	horizontal-align: center;
+	font-size: 60px;
+	margin-top: -10px;
+	vertical-align: top;
+	margin-right: 5px;
+}
+
+#StrengthButton{
+	margin-left: 90px;
+	margin-top: 50px;
+	background-image: url("file://{images}/custom_game/char_screen/D3StrengthButton.png");
+}
+
+#AgilityButton{
+	margin-left: 90px;
+	margin-top: 150px;
+	background-image: url("file://{images}/custom_game/char_screen/D3AgilityButton.png");
+}
+
+#IntelligenceButton{
+	margin-right: 90px;
+	margin-top: 50px;
+	horizontal-align: right;
+	background-image: url("file://{images}/custom_game/char_screen/D3IntelligenceButton.png");
+}
+
+#VitalityButton{
+	margin-right: 90px;
+	margin-top: 150px;
+	horizontal-align: right;
+	background-image: url("file://{images}/custom_game/char_screen/D3VitalityButton.png");
+}
+
+#CharacterHeader{
+	margin-top: 256px;
+}
+
+.DataButton{ 
+	vertical-align: center;
+	background-repeat: round;
+	margin-top: -160px;
+	width: 150px;
+	height: 60px;
+}
+
+#CombatDataButton{
+	horizontal-align: left;
+	margin-left: 100px;
+	background-image: url("file://{images}/custom_game/char_screen/DamagePane.png");
+}
+ 
+#DefenseDataButton{
+	horizontal-align: center;
+	background-image: url("file://{images}/custom_game/char_screen/DefensePane.png");
+}
+
+#SupportDataButton{
+	horizontal-align: right;
+	margin-right: 100px;
+	background-image: url("file://{images}/custom_game/char_screen/SupportPane.png");
+}
+
+#DataPanel{
+	horizontal-align: center;
+	margin-top: 360px;
+	vertical-align: center;
+	margin-left: -20px;
+	margin-right: -20px;
+	margin-bottom: -32px;
+	width: 1300px;
+	height: 496px;
+	background-repeat: round;
+	background-image: url("file://{images}/custom_game/char_screen/DataPaneBackground.png");
+}
+
+#StatsPanel{
+	width: 990px;
+	height: 850px;
+}
+
+#DamagePanel{
+	background-image: url("file://{images}/custom_game/char_screen/Damage.png");
+	background-repeat: round;
+	margin-left: 50px;
+	margin-top: 50px;
+	width: 200px;
+	height: 90px;
+}
+
+#DamageText{
+	horizontal-align: center;
+	vertical-align: center;
+	font-size: 48px;
+}

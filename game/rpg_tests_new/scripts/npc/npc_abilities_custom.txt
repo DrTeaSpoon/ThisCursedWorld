@@ -1,0 +1,832 @@
+
+// Dota Abilities Override File
+"DOTAAbilities"
+{
+  "Version"   "1" 
+  "berserker_cleave"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "axe_culling_blade"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.33"
+    "AbilityCooldown"       "10.0"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "AbilityCastAnimation"      "ACT_DOTA_ATTACK2"
+    
+    "precache"
+    {
+      "particle"          "particles/units/heroes/hero_tidehunter/tidehunter_anchor_hero_swipe_blur.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "50"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor"        "1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 2.0"
+      }
+      
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor_per_stack"        "0.05 0.06 0.07 0.08 0.09 0.1 0.11 0.12 0.13 0.15"
+      }
+      
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "stacks_consumed_perecentage"        "70 68 66 64 62 60 58 56 54 50"
+      }
+      
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "minimum_stacks"        "5"
+      }
+    }
+    "OnAbilityPhaseStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "scripts/vscripts/spells/berserker/cleave.lua"
+        "Function" "OnAbilityStart"
+        "Target" "CASTER"
+      }
+    }
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile" "scripts/vscripts/spells/berserker/cleave.lua"
+        "Function" "OnSpellStart"
+        "Target" "CASTER"
+      }
+      "LinearProjectile"
+      {
+        "Target"      "POINT"
+        "EffectName"  ""
+        "MoveSpeed"   "500"
+        "StartRadius"   "250"
+        "StartPosition" "attach_origin"
+        "EndRadius"     "250"
+        "FixedDistance" "150"
+        "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+        "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
+        "HasFrontalCone"    "1"
+        "ProvidesVision" "0"
+      }
+    }
+
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit" "0"
+      "RunScript"
+      {
+        "ScriptFile" "scripts/vscripts/spells/berserker/cleave.lua"
+        "Function" "OnProjectileHit"
+        "Target" "TARGET"
+      }
+    }
+      
+  }
+
+  "berserker_rage"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"  
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "juggernaut_blade_dance"
+
+    "precache"
+    {
+      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "3"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor"        "-40 -35 -30 -25 -20 -15 -10 -5 0 10"
+      }
+      
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "max_count"        "10 13 15 17 19 21 23 25 27 30"
+      }
+      
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "attack_speed_bonus"   "3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 4.0"
+      }
+    }
+    "Modifiers"
+    {
+      "berserker_rage_buff"
+      {
+        "Passive" "0"
+        "IsHidden" "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_bonus"
+        }
+      }
+
+      "berserker_rage_bts_buff"
+      {
+        "Passive" "1"
+        "IsHidden" "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_factor"
+        }
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile" "scripts/vscripts/spells/berserker/rage.lua"
+            "Function" "OnCreated"
+          }
+        }
+        "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile" "scripts/vscripts/spells/berserker/rage.lua"
+            "Function" "OnDestroyed"
+          }
+        }
+
+        "OnAttackLanded"
+        {
+          "RunScript"
+          {
+            "ScriptFile" "scripts/vscripts/spells/berserker/rage.lua"
+            "Function" "OnAttackLanded"
+          }
+          "ApplyModifier"
+          {
+            "Target" "CASTER"
+            "ModifierName" "berserker_rage_buff"
+          }
+        }
+      }
+    }
+  }
+  
+  "berserker_spirit_mend"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "earth_spirit_geomagnetic_grip"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "15.0"
+    "AbilityChannelTime"      "1.0"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY3"
+    "AnimationPlaybackRate" "10"
+    
+    "precache"
+    {
+      "particle" "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end.vpcf"
+      "particle" "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_b.vpcf"
+      "particle" "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end_b.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "150"
+    "SideShop"            "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "stacks_consumed"        "100"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "health_restored_per_stack"        "3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 4.0"
+      }
+    }
+    "OnSpellStart"
+    {
+      "AttachEffect"
+      {
+        "EffectName" "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end_b.vpcf"
+        "Target" "CASTER"
+        "EffectAttachType" "attach_hitloc"
+      }
+      "ApplyModifier"
+      {
+        "Target" "CASTER"
+        "ModifierName" "spirit_mend_channel_modifier"
+      }
+    }
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+      {
+        "Target" "CASTER"
+        "ModifierName" "spirit_mend_channel_modifier"
+      }
+    }
+
+    "OnChannelSucceeded"
+    {
+      "AttachEffect"
+      {
+        "EffectName"  "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_end.vpcf"
+        "Target"    "CASTER"
+        "EffectAttachType"  "attach_hitloc"
+        "EffectLifeDurationScale" "15"
+        "EffectDurationScale" "15"
+      }
+      "RunScript"
+      {
+        "ScriptFile" "scripts/vscripts/spells/berserker/spiritMend.lua"
+        "Function" "OnSpellStart"
+        "Target" "CASTER"
+      }
+    }
+
+    "Modifiers"
+    {
+      "spirit_mend_channel_modifier"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "EffectName" "particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_ambient_b.vpcf"
+        "EffectAttachType" "follow_overhead"
+      }
+    }
+    
+  }
+  "berserker_spirit_axes"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "antimage_mana_break"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "10.0"
+    "AbilityChannelTime"      "2.0 1.8 1.6 1.5"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+    "precache"
+    {
+      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "300"
+    "SideShop"            "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor"        "0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.7"
+      }
+    }
+  }
+  "berserker_bash"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "pudge_dismember"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "10.0"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+    
+    "precache"
+    {
+      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "300"
+    "SideShop"            "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "1 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 2.0"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor"        "2 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 4.0"
+      }
+      
+      "03"
+      {
+        "var_type" "FIELD_FLOAT"
+        "stun_duration" "0.2 0.25 0.3 0.35 0.4 0.45 0.5 0.55 0.6 0.7"
+      }
+    }
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName" "gushing_strike_modifier"
+        "Target" "CASTER"
+      }
+    }
+    "Modifiers"
+    {
+      "gushing_strike_modifier"
+      {
+        "Passive" "0"
+        "IsHidden" "0"
+        "OnAttackLanded"
+        {
+
+        }
+      }
+    }
+  }
+  "berserker_dash"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "queenofpain_blink"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "3000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "0.1"
+    "AbilityChannelTime"      "0.0"
+    "AbilityCastAnimation"      "ACT_DOTA_TELEPORT"
+    "MaxLevel" "10"
+    "LevelsBetweenUpgrades" "2"
+    "RequiredLevel" "1"
+
+    "precache"
+    {
+      "soundfile"     "soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts"
+      "particle"      "particles/units/heroes/hero_queenofpain/queen_blink_end.vpcf"
+      "particle"      "particles/units/heroes/hero_queenofpain/queen_blink_start.vpcf"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "30"
+    "SideShop"            "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {      
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_factor"        "0.5 0.55 0.6 0.65 0.7 0.75 0.8 0.85 0.9 1.0"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_radius"        "150 150 150 150 150 150 150 150 150 150"
+      }
+      
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "distance"        "300 310 320 330 340 350 360 370 380 400"
+      }
+    }
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "scripts/vscripts/spells/berserker/dash.lua"
+        "Function"    "Dash"
+        "Target"    "POINT"
+      }
+
+      "FireSound"
+      {
+        "EffectName"  "Hero_QueenOfPain.Blink_out"
+        "Target"    "CASTER"
+      }
+
+      "AttachEffect"
+      {
+        "EffectName"  "particles/units/heroes/hero_queenofpain/queen_blink_start.vpcf"
+        "Target"    "CASTER"
+        "EffectAttachType"  "attach_hitloc"
+      }
+
+      "FireSound"
+      {
+        "EffectName"  "Hero_QueenOfPain.Blink_in"
+        "Target"    "CASTER"
+      }
+
+      "AttachEffect"
+      {
+        "EffectName"  "particles/units/heroes/hero_queenofpain/queen_blink_end.vpcf"
+        "Target"    "CASTER"
+        "EffectAttachType"  "follow_origin"
+      }
+    }
+  }
+  "berserker_gladiator"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "magnataur_reverse_polarity"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "10.0"
+    "AbilityChannelTime"      "2.0 1.8 1.6 1.5"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+    
+    "precache"
+    {
+      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "300"
+    "SideShop"            "1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "5.0 5.2 5.4 5.6 6.0"
+      }
+      
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_increased" "0.05 0.07 0.09 0.12 0.15"
+      }
+      
+      
+      "06"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "ms_increased"        "0.1 0.15 0.2 0.25 0.3"
+      }
+
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "as_increased"        "0.1 0.15 0.2 0.25 0.3"
+      }
+      
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "as_decreased"        "0.2 0.25 0.3 0.35 0.5"
+      }
+      
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "ms_decreased"        "0.3 0.37 0.43 0.56 0.7"
+      }
+
+    }
+  }
+  
+  "identify_item"
+  {
+    "ID"              "1853"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "holdout_blade_fury"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "0.0"
+    "AbilityChannelTime"      "2.0 1.8 1.6 1.5"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+    "SideShop"            "1"
+    
+    "OnSpellStart"
+    {
+    }
+    
+    "OnChannelSucceeded"
+    {
+      "RunScript"
+      {
+        "Target" "CASTER"
+        "ScriptFile" "mmoui.lua"
+        "Function" "OnIdentifyItemCastFinished"
+      }
+    }
+    
+
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "0.5"
+      }
+      
+    }
+  }
+
+  "example_ability"
+  {
+    "ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "holdout_blade_fury"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "10.0"
+    "AbilityChannelTime"      "2.0 1.8 1.6 1.5"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+    "AbilityDamage"         "400 600 800 1000"
+
+    
+    "precache"
+    {
+      "particle"          "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+    }
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "0"
+    "SideShop"            "1"
+    
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "Target"    "CASTER"
+        "ModifierName"  "modifier_channel_start"
+      }
+      "FireSound"
+      {
+        "EffectName"    "Hero_Gyrocopter.CallDown.Fire"
+        "Target"      "CASTER"
+      }
+    }
+    
+    "OnChannelSucceeded"
+    {
+      "RemoveModifier"
+      {
+        "Target"        "CASTER"
+        "ModifierName"      "modifier_channel_start"
+      }
+      "AttachEffect"
+      {
+        "EffectName"      "particles/econ/generic/generic_aoe_explosion_sphere_1/generic_aoe_explosion_sphere_1.vpcf"
+        "EffectAttachType"    "follow_origin"
+        "EffectRadius"      "%radius"
+        "EffectDurationScale" "1"
+        "EffectLifeDurationScale" "1"
+        "EffectColorA"      "255 0 0"
+        "EffectColorB"      "255 0 0"
+        "Target"      "CASTER"
+      }
+      
+      "Damage"
+      {
+        "Type"          "DAMAGE_TYPE_PURE"
+        "Damage"        "%damage"
+        "Target"
+        {
+          "Center"      "CASTER"
+          "Radius"      "%radius"
+          "Teams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types"       "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        }
+      }
+      
+      "Knockback"
+      {
+        "Center"  "CASTER"
+        "Target"
+        {
+          "Center"  "CASTER"
+          "Radius"  "%radius"
+          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        }
+        "Duration"  "%duration"
+        "Distance"  "%distance"
+        "Height"  "%height"
+      }
+      
+      "FireSound"
+      {
+        "EffectName"    "Hero_Gyrocopter.CallDown.Damage"
+        "Target"      "CASTER"
+      }
+    }
+    
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"        "0.5"
+      }
+      
+    }
+  }
+
+
+//-------------------
+// Dummy stuff
+//-------------------
+  
+  "dummy_unit"
+  {
+    "AbilityBehavior"     "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+    "MaxLevel"                      "1"
+    
+    "Modifiers"
+    {
+      "dummy_unit"
+      {
+          "Passive"                        "1"
+          "IsHidden"                        "1"    
+          "States"
+          {
+              "MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+              "MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+              "MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+              "MODIFIER_STATE_NO_HEALTH_BAR"  "MODIFIER_STATE_VALUE_ENABLED"
+          }
+      }
+    }
+  }
+
+
+  "barebones_empty1"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  "barebones_empty2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5344"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  
+  "barebones_empty3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5345"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  
+  "barebones_empty4"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5346"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  
+  "barebones_empty5"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5347"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  
+  "barebones_empty6"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+  
+  "barebones_empty7"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    //"ID"              "5343"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    "MaxLevel"            "0"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"            "rubick_empty1"
+  }
+}
+

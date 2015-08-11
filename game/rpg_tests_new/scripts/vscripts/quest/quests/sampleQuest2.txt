@@ -1,0 +1,251 @@
+"Quest"
+{
+	"name" "Killing Boars"
+	"identifier" "quest_killing_boars"
+	"desc" "For this task I'd like you to kill ten boars. I'd also like you to do something random which im not entirely sure about im just randomly typing shit"
+	"minLevel" "0"
+	"defaultActive" "true"
+	"renotify" "false"
+	"prereqcvxs"
+	{
+		"or"
+		{
+			"first"
+			{
+				"type" "trigger"
+				"target" "complete_requiem_trials"
+			}
+
+			"second"
+			{
+				"type" "hasItem"
+				"target" "item_helm_of_the_dominator"
+				"charges" "1"
+			}
+
+			"third"
+			{
+				"type" "consumeItem"
+				"target" "item_helm_of_the_dominator"
+				"charges" "1"
+			}
+
+			"fifth"
+			{
+				"type" "heroIs"
+				"target" "abbadon"
+
+			}
+
+			"sixth"
+			{
+				"type" "playersInLobby"
+				"target" "0-5"
+			}
+
+		}
+	}
+
+	"starters"
+	{
+		"flag"
+		{
+			"type" "interact"
+			"target" "first_npc_traveller"
+		}
+		"item"
+		{
+			"type" "item" 
+			"target" "flag_SampleQuest_Starter"
+		}
+	}
+
+	"groups"
+	{
+		"kobolds"
+		{
+			"npc_dota_neutral_kobold_taskmaster"
+			{
+				"weight" "2"
+			}
+
+			"npc_dota_neutral_kobold"
+			{
+				"weight" "1"
+				"pingRate" "3"
+			}
+		}
+
+		"god_tier_items"
+		{
+			"item_helm_of_the_dominator"
+			{
+				"weight" "1"
+
+			}
+		}
+	}
+
+	"stages"
+	{
+		"Stage99"
+		{
+
+			"KillFiveShrimp"
+			{
+				"text" "Kobolds Killed: %c/%m"
+				"type" "killGroup"
+				"hint" "Kobold Taskmasters and normal Kobolds count for kills"
+				"target" "kobolds"
+				"count" "5"
+			}
+		}
+		"Stag9e2"
+		{
+			"KillHim"
+			{
+				"text" "Find and Kill the Snark"
+				"type" "kill"
+				"target" "target_for_kill"
+				"hint" "He looks like... a snark"
+			}
+		}
+		"Stage55"
+		{
+			"CollectThreeHelms"
+			{
+				"type" "itemType"
+				"text" "Helms of the Dominator: %c/%m"
+				"target" "item_helm_of_the_dominator"
+				"count" "3"
+			}
+		}
+		"Stage1"
+		{
+			"execute" "Say(nil,'hi',false);"
+			"EnterNarnia"
+			{
+				"type" "enter"
+				"text" "Enter Narnia"
+				"target" "enter_narnia"
+			}
+		}
+		"Stage2"
+		{
+			"EnterNarnia"
+			{
+				"type" "exit"
+				"text" "Leave Narnia"
+				"target" "enter_narnia"
+			}
+		}
+		"Stage99"
+		{
+			"CollectThreeHelms"
+			{
+				"type" "itemType"
+				"text" "Helms of the Dominator: %c/%m"
+				"target" "item_helm_of_the_dominator"
+				"count" "3"
+			}
+			
+		}
+		"Stage5"
+		{
+			"TalkToNigg"
+			{
+				"text" "Convince <b>Flying Shrimp</b> to open a bar"
+				"type" "interact"
+				"target" "first_npc_traveller"
+				"chat" "I've thought of opening a bar, do you agree?"
+				"options"
+				{
+					"first"
+					{
+						"text" "Sounds like a great idea!"
+						"img" "/chat"
+						"goto"
+						{
+							"text" "So what should i name it?"
+							"portraitFx" ""
+							"options"
+							{
+								"first"
+								{
+									"text" "Pappy's Pub"
+									"img" "/chat"
+									"fireId" "$"
+									"goto"
+									{
+										"text" "Cheezy, but it works. OPEN IN TEN MONTHS!"
+										"portraitFx" ""
+										"shortcut" "root$refresh"
+									}
+								}
+								"second"
+								{
+									"text" "The Dick'n'Lick"
+									"img" "/chat"
+									"goto"
+									{
+										"text" "Sorry, I'm not gay."
+										"portraitFx" ""
+										"options"
+										{
+											"first"
+											{
+												"text" "Oh"
+												"img" "/chat"
+												"goto"
+												{
+													"shortcut" "root"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					"second"
+					{
+						"text" "Sounds like a terrible idea"
+						"img" "/chat"
+						"goto"
+						{
+							"text" "Sucks for you."
+							"portraitFx" ""
+							"options"
+							{
+								"first"
+								{
+									"text" "aww"
+									"img" "/chat"
+									"goto"
+									{
+										"shortcut" "root"
+									}
+								}
+							}
+						}
+					}	
+				}
+			}
+		}
+		"Turnin"
+		{
+			"type" "interactType"
+			"target" "first_npc_traveller"
+			"text" "Talk to <b>The Flying Courier</b>"
+			"thanksText" "Those fucking shrimp are dead? Great!"
+		}
+		"onFinish"
+		{
+			"expReward" "1200"
+			"goldReward" "1000"
+			"itemReward" "item_helm_of_the_dominator"
+			"questEnable" "Fall of Ankhar"
+		}
+
+	}
+}

@@ -1,0 +1,234 @@
+
+.InteractPanel{
+	width: 500px;
+	margin: 75px 5px 5px 30px;
+	height: 700px;
+	border: 3px solid #111111FF;
+	border-radius: 5px;
+	box-shadow: #25292FAA 4px 4px 8px 0px;
+}
+
+.InteractPanelSmall{
+	width: 500px;
+	margin: 75px 5px 5px 30px;
+	height: 75px;
+	border: 3px solid #111111FF;
+	border-radius: 5px;
+	box-shadow: #25292FAA 4px 4px 8px 0px;
+}
+
+.DialogueTextSmall{
+	font-size: 24px;
+	color: #ffffff;
+	height: 205px;
+	margin-bottom: -10px;
+	text-shadow: 0px 0px 5px 4.0 #000000FF;
+}
+.DialogueTextBig{
+	font-size: 48px;
+	color: #ffffff;
+	height: 205px;
+	margin-bottom: -10px;
+	text-shadow: 0px 0px 5px 4.0 #000000FF;
+}
+
+#Dialogue{
+	margin-left: 10px;
+	margin-top: 17px;
+	height: fit-children;
+}
+
+#Compiling{
+	width: 0%;
+	height: 0%;
+}
+
+#Frame{
+	flow-children: down;
+}
+#Content{
+	flow-children: down;
+	background-color: rgba(37,41,47,150);
+	height: 622px;
+}
+
+#MiniPanel{
+	background-color: rgba(20,20,20,255);
+	box-shadow: -8px -8px 30px 15px;
+	horizontal-align: right;
+	width:40px;
+	margin-top: 13px;
+	margin-right: 7px;
+}
+
+#MiniPanel:hover{
+	background-color: rgba(0,0,0,255);
+}
+
+#MiniPanel:active{
+	background-color: rgba(37,41,155,225);
+}
+
+
+#MiniLabel{
+	font-size: 32px;
+	color: #ffffff;
+	horizontal-align: center;
+}
+#Background{
+	width: 500px;
+	height: 700px;
+	opacity: 0.65; 
+	background-image: url("file://{images}/custom_game/interact_background.png");
+	background-repeat: round;
+}
+
+#Header{
+	width: 500px;
+	background-color: rgba(37,41,47,255);
+	box-shadow: rgba(37,41,47,250) 0px -26px 50px 35px;
+}
+
+#TalkyPanel{
+	flow-children: right;
+}
+
+#HeaderName{
+    color: #c7d1d7;
+	text-shadow: 0px 0px 3px 3 #000000ff;
+    font-size: 64px;
+    margin-left: 10px; 
+	margin-top: -3px;
+	margin-bottom: -10px; 
+	font-weight: bold;
+    vertical-align: center; 
+}
+
+.Hide{
+	width: 0px;
+	height: 0px;
+}
+
+#PortraitImage{
+	width: 160px;
+	height: 190px;
+	 
+	border: 3px solid #111111FF;
+	background-image: url("file://{images}/custom_game/fry_portrait.png");  
+	background-repeat: round;
+}
+
+#PortraitPanel{
+	margin-left: 20px;
+	margin-top: 20px;
+	width: 160px;
+	height: 190px;
+	background-color:  rgba(24,25,33,200);
+	box-shadow: #25292FAA 4px 4px 8px 0px;
+}
+
+#Options{
+	flow-children: down;
+	overflow: squish scroll;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 15px;
+	background-color:  rgba(24,28,33,50);
+}
+		
+.OptionsPanel{
+	border: 3px solid #111111FF;
+	flow-children: right;
+	margin-bottom: 5px;
+	width: 500px;
+	height: fit-children;
+	background-color:  rgba(255,255,255,10);
+}
+
+.OptionsPanel:hover{
+	border: 3px solid #111111FF;
+	flow-children: right;
+	margin-bottom: 5px;
+	width: 500px;
+	height: fit-children;
+	background-color:  rgba(255,255,255,30);
+}
+
+.greenHighlight{
+	text-shadow: 0px 0px 7px 1.0 #93ff9388;
+	color: #00ff00;
+}
+
+.lightGreenHighlight{
+	text-shadow: 0px 0px 7px 1.0 #b3ffb388;
+	color: #55ff55;
+}
+
+.lightRedHighlight{
+	text-shadow: 0px 0px 3px 1.0 #C6424188;
+	color: #C64241;
+}
+.redHighlight{
+	text-shadow: 0px 0px 3px 1.0 #ff222288;
+	color: #ff2222;
+}
+
+.orangeHighlight{
+	text-shadow: 0px 0px 3px 1.0 #ff660088;
+	color: #ff6600;
+}
+
+.yellowHighlight{
+	text-shadow: 0px 0px 7px 1.0 #ffff0088;
+	color: #ffff00;
+}
+.OptionsPanel:active{
+	border: 3px solid #111111FF;
+	flow-children: right;
+	margin-bottom: 5px;
+	width: 500px;
+	height: fit-children;
+	background-color:  rgba(255,255,255,50);
+}
+
+.OptionsImagePanel{
+	margin: 10px;
+	background-color:  rgba(25,25,25,100);
+	vertical-align: center;
+	horizontal-align: center;
+	border: 3px solid #111111FF;
+	box-shadow: #22222288 0px 0px 1px 3x; 
+}
+
+.OptionsImage{
+	vertical-align: center;
+	horizontal-align: center;
+	width: 50px;
+	height: 50px;
+}
+.OptionsTextPanel{
+	margin-left: 5px;
+	margin-right: -5px;
+	margin-top: 2px;
+	width: 380px;
+	height: fit-children;
+	vertical-align: center;
+}
+.OptionsImageFrame{
+
+}
+.OptionsTextPanelReal{
+	vertical-align: center;
+	height: fit-children;
+}
+.OptionsTextRealNoColor{
+	font-size: 24px;
+	height: fit-children;
+	vertical-align: center;
+}
+.OptionsTextReal{
+	font-size: 24px;
+	height: fit-children;
+	color: #cccccc;
+	vertical-align: center;
+}

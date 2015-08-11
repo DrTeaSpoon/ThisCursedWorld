@@ -1,0 +1,192 @@
+<root>
+	<scripts>
+	
+		<include src="file://{resources}/scripts/custom_game/char_screen/inventory.js" />
+	</scripts> 
+	
+	<styles>
+		<include src="file://{resources}/styles/custom_game/char_screen/inventory.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>
+	 
+	<Panel>
+		<Panel id="Background" />
+		<Panel id="RootPanel">
+			<Panel id="EquipmentOverhead">
+				<Panel id="EquipmentPanel">
+					<Panel id="LeftEquipmentPanel" >
+						<Button id="Helm" />
+						<Button id="Shoulders" />
+						<Button id="Chest" />
+						<Button id="Gloves" />
+						<Button id="Pants" />
+					</Panel>
+					<Panel id="RightEquipmentPanel">
+						<Button id="Necklace" />
+						<Button id="RingLeft" />
+						<Button id="RingRight" />
+						<Button id="Belt" />
+						<Button id="Boots" />
+					</Panel>
+					<Panel id="BottomEquipmentPanel">
+						<Panel id="BottomLeftEquipmentPanel">
+							<Button id="WeaponLeft" />
+							<Button id="SoulLeft" />
+						</Panel>
+						<Panel id="BottomRightEquipmentPanel">
+							<Button id="WeaponRight" />
+							<Button id="SoulRight" />
+						</Panel>
+					</Panel>
+				</Panel>
+				
+				<Panel id="CharmsPanel">
+					<Panel id="CharmRow1">
+						<Button id="Charm1" />
+						<Button id="Charm2" />
+						<Button id="Charm3" />
+						<Button id="Charm4" />
+					</Panel>
+					<Panel id="CharmRow2">
+						<Button id="Charm5" />
+						<Button id="Charm6" />
+						<Button id="Charm7" />
+						<Button id="Charm8" />
+					</Panel>
+					<Panel id="CharmRow3">
+						<Button id="Charm9" />
+						<Button id="Charm10" />
+						<Button id="Charm11" />
+						<Button id="Charm12" />
+					</Panel>
+					<Panel id="CharmRow4">
+						<Button id="Charm13" />
+						<Button id="Charm14" />
+						<Button id="Charm15" />
+						<Button id="Charm16" />
+					</Panel>
+					<Panel id="CharmRow5">
+						<Button id="Charm17" />
+						<Button id="Charm18" />
+						<Button id="Charm19" />
+						<Button id="Charm20" />
+					</Panel>
+					<Panel id="CharmRow6">
+						<Button id="Charm21" />
+						<Button id="Charm22" />
+						<Button id="Charm23" />
+						<Button id="Charm24" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="InventoryPanel">
+				<Panel id="InventoryRow1">
+					<Button id="Inventory1" />
+					<Button id="Inventory2" />
+					<Button id="Inventory3" />
+					<Button id="Inventory4" />
+					<Button id="Inventory5" />
+					<Button id="Inventory6" />
+					<Button id="Inventory7" />
+					<Button id="Inventory8" />
+					<Button id="Inventory9" />
+					<Button id="Inventory10" />
+					<Button id="Inventory11" />
+					<Button id="Inventory12" />
+					<Button id="Inventory13" />
+					<Button id="Inventory14" />
+					<Button id="Inventory15" />
+				</Panel>
+				<Panel id="InventoryRow2">
+					<Button id="Inventory16" />
+					<Button id="Inventory17" />
+					<Button id="Inventory18" />
+					<Button id="Inventory19" />
+					<Button id="Inventory20" />
+					<Button id="Inventory21" />
+					<Button id="Inventory22" />
+					<Button id="Inventory23" />
+					<Button id="Inventory24" />
+					<Button id="Inventory25" />
+					<Button id="Inventory26" />
+					<Button id="Inventory27" />
+					<Button id="Inventory28" />
+					<Button id="Inventory29" />
+					<Button id="Inventory30" />
+				</Panel>
+				<Panel id="InventoryRow3">
+					<Button id="Inventory31" />
+					<Button id="Inventory32" />
+					<Button id="Inventory33" />
+					<Button id="Inventory34" />
+					<Button id="Inventory35" />
+					<Button id="Inventory36" />
+					<Button id="Inventory37" />
+					<Button id="Inventory38" />
+					<Button id="Inventory39" />
+					<Button id="Inventory40" />
+					<Button id="Inventory41" />
+					<Button id="Inventory42" />
+					<Button id="Inventory43" />
+					<Button id="Inventory44" />
+					<Button id="Inventory45" />
+				</Panel>
+				<Panel id="InventoryRow4">
+					<Button id="Inventory46" />
+					<Button id="Inventory47" />
+					<Button id="Inventory48" />
+					<Button id="Inventory49" />
+					<Button id="Inventory50" />
+					<Button id="Inventory51" />
+					<Button id="Inventory52" />
+					<Button id="Inventory53" />
+					<Button id="Inventory54" />
+					<Button id="Inventory55" />
+					<Button id="Inventory56" />
+					<Button id="Inventory57" />
+					<Button id="Inventory58" />
+					<Button id="Inventory59" />
+					<Button id="Inventory60" />
+				</Panel>
+				<Panel id="InventoryRow5">
+					<Button id="Inventory61" />
+					<Button id="Inventory62" />
+					<Button id="Inventory63" />
+					<Button id="Inventory64" />
+					<Button id="Inventory65" />
+					<Button id="Inventory66" />
+					<Button id="Inventory67" />
+					<Button id="Inventory68" />
+					<Button id="Inventory69" />
+					<Button id="Inventory70" />
+					<Button id="Inventory71" />
+					<Button id="Inventory72" />
+					<Button id="Inventory73" />
+					<Button id="Inventory74" />
+					<Button id="Inventory75" />
+				</Panel>
+				<Panel id="InventoryRow6">
+					<Button id="Inventory76" />
+					<Button id="Inventory77" />
+					<Button id="Inventory78" />
+					<Button id="Inventory79" />
+					<Button id="Inventory80" />
+					<Button id="Inventory81" />
+					<Button id="Inventory82" />
+					<Button id="Inventory83" />
+					<Button id="Inventory84" />
+					<Button id="Inventory85" />
+					<Button id="Inventory86" />
+					<Button id="Inventory87" />
+					<Button id="Inventory88" />
+					<Button id="Inventory89" />
+					<Button id="Inventory90" />
+				</Panel>
+			</Panel>
+			
+			<Panel id="ControlsPanel">
+			</Panel>
+		</Panel>
+	
+	</Panel>
+</root>

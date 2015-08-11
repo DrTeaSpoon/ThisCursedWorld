@@ -1,0 +1,149 @@
+"CustomEvents"
+{
+	"quest_set_line"
+	{
+		"id" "int"
+		"lineIndex" "int"
+		"lineText" "string"
+		"flashLine" "boolean"
+		"completed" "boolean"
+		"hint" "string"
+		"player" "int"
+	}
+
+	"quest_complete_line"
+	{
+		"id" "int"
+		"lineIndex" "id"
+		"fade" "boolean"
+		"player" "int"
+	}
+
+	"quest_set_sub_line"
+	{
+		"id" "int"
+		"lineIndex" "int"
+		"lineSubIndex" "int"
+		"lineText" "string"
+		"flashLine" "boolean"
+		"completed" "boolean"
+		"player" "int"
+	}
+
+	"quest_complete_sub_line"
+	{
+		"id" "int"
+		"lineIndex" "int"
+		"lineSubIndex" "int"
+		"fade" "boolean"
+		"player" "int"
+	}
+
+	"quest_remove"
+	{
+		"id" "int"
+		"fade" "boolean"
+		"player" "int"
+	}
+	
+	"quest_create"
+	{
+		"name" "string"
+		"id" "int"
+		"player" "int"
+		"colorflag" "int"
+	}
+
+	"quest_flag"
+	{
+		"flag" "string"
+		"id" "int"
+		"player" "int"
+	}
+
+	"interact_show"
+	{
+		"show" "boolean"
+		"player" "int"
+		"name" "string"
+	}
+
+	"interact_set_flags"
+	{
+		"name" "string"
+		"portrait" "string"
+		"text" "string"
+		"player" "int"
+		"options" "table"
+	}
+
+	"interact_clear_options"
+	{
+		"player" "int"
+	}
+
+	"interact_add_option"
+	{
+		"player" "int"
+		"text" "string"
+		"img" "string"
+		"id" "int"
+	}
+
+	"interact_click_option"
+	{
+		"id" "int"
+		"player" "int"
+	}
+
+
+	"combo_quest_show"
+	{
+		"show" "int"
+		"player" "int"
+	}
+
+	"mmmoui_get_int_property"
+	{
+		"player" "int"
+		"propertyId" "int"
+		"unit" "short"
+	}
+
+	"mmoui_return_int_property"
+	{
+		"player" "int"
+		"value" "int"
+		"propertyId" "int"
+	}
+
+	"mmoui_get_abil_special"
+	{
+		"itemIndex" "int"
+		"player" "int"
+	}
+
+	"mmoui_return_abil_special"
+	{
+		"itemTable" "table"
+		"player" "int"
+		"ability" "string"
+	}
+
+	"mmoui_get_class"
+	{
+		"player" "int"
+		"ability" "string"
+	}
+	
+	"mmoui_identify_item"
+	{
+		"player" "int"
+		"itemIndex" "int"
+	}
+
+	"mmoui_become_identified"
+	{
+		"player" "int"
+	}
+}

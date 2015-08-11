@@ -1,0 +1,12 @@
+<root> 
+   
+  <Panel>    
+	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_hud_base.xml" />
+ 
+	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/interactable.xml" />
+	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quest_log.xml" />
+	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/mmoui/mmo_ui.xml" />
+	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/char_screen/root.xml" />
+	
+  </Panel> 
+</root>

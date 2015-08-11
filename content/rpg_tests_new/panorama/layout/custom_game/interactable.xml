@@ -1,0 +1,51 @@
+<root>  
+      
+	<styles>    
+		<include src="file://{resources}/styles/custom_game/interactable.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>    
+	  
+	<scripts> 
+		<include src="file://{resources}/scripts/custom_game/interactable.js" />
+	</scripts>    
+    
+	<Panel>  
+		<Panel id="InteractPanel" class="InteractPanel" visible="false" >
+			<Panel id="Background" />
+			<Panel id="Frame">  
+				<Panel id="Header">   
+					<Label id="HeaderName" text="Riggy Mortis" />
+					<Button id="MiniPanel" onactivate="OnWindowClose()" >
+						<Label id="MiniLabel" text=" ― " />
+					</Button>
+				</Panel>
+				<Panel id="Content">
+					<Panel id="TalkyPanel" >
+						<Panel id="PortraitPanel">
+							<Panel id="PortraitImage" /> 
+						</Panel>
+						
+						<Panel id="Dialogue">
+							<Label id="DialogueText" text="hi" />
+						</Panel>
+					</Panel>
+					
+					<Panel id="Options" >
+					</Panel>
+				</Panel>
+				
+				<Panel id="Compiling" >   
+					<Image class="Hide" url="file://{images}/custom_game/chat.png" />
+					<Image class="Hide" url="file://{images}/custom_game/check.png" />
+					<Image class="Hide" url="file://{images}/custom_game/exclamation.png" />
+					<Image class="Hide" url="file://{images}/custom_game/ItemIcon058.png" />
+					<Image class="Hide" url="file://{images}/custom_game/stop.png" />
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+	
+	 
+	
+</root>
+ 

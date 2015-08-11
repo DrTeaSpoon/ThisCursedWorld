@@ -1,0 +1,22 @@
+"Interact"
+{
+	"name" "Simonsen"
+	"text" "Soldier! Are you ready to enter the wilderness?"
+	"portrait" ""
+	"options"
+	{
+		"first"
+		{
+			"img" "/chat"
+			"text" "Ready, sir!"
+			"goto" 
+			{
+				"text" "Than get out there son!"
+				"goto"
+				{
+					"shortcut" "root"
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,109 @@
+<root>  
+       
+	<styles>        
+		<include src="file://{resources}/styles/custom_game/mmoui/mmo_ui.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>      
+	         
+	<scripts> 
+		<include src="file://{resources}/scripts/custom_game/mmoui/mmo_ui.js" />
+	</scripts>       
+	    
+	<Panel class="rootPanel" hittest="false"  >
+	 
+		<Panel id="TargetPanel" hittest="false">
+			<Label id="TargetName" text="BANDIT" hittest="false"/>
+			<Panel id="TargetHealthBar" hittest="false">
+				<Image id="TargetHealthBarBackground" src="" hittest="false"/>
+				<Label id="TargetHealthBarText" text="0/0" hittest="false"/>
+				<Panel id="THBCContainer">
+					<Panel id="TargetHealthBarColor" src="" hittest="false" />
+				</Panel>
+			</Panel>
+			<Label id="TargetAbilities" hittest="false"/>
+		</Panel>
+		
+			<Panel id="gold">
+				<Image id="goldImage" src="file://{images}/custom_game/mmobar/gold.png" />
+				<Label id="goldLabel" text="0" />
+			</Panel>
+		<Panel id="MMOUI" class="root" hittest="false" visibility="collapse" > 
+		
+				
+		
+			<Panel id="quickbar" hittest="false">
+				<Panel id="quickBarSub" hittest="false" >
+					<Image id="quickBarImg" hittest="false" src="file://{images}/custom_game/mmobar/vehiclebar7plus.png" />
+				</Panel>
+			</Panel> 
+			 
+			<Panel id="base" >
+				<Image id="baseImg" src="file://{images}/custom_game/mmobar/d3_bottom.tga" />
+			</Panel>
+			<Button id="orbLeft">
+				<Image id="orbLeftFill" src="file://{images}/custom_game/mmobar/redCircle.png" />
+				<Image id="orbLeftBackground" src="file://{images}/custom_game/mmobar/orb_back2.tga" />
+				<Image id="orbLeftGloss" src="file://{images}/custom_game/mmobar/orb_gloss.tga" />
+				<Label id="orbLeftText" />
+				<Label id="orbLeftSmallText" />
+				<!-- <Image id="orbLeftImgOverlay" class="galaxy" src="file://{images}/custom_game/mmobar/orb_filling9.tga" /> -->
+			</Button>
+			<Panel id="orbRight">
+				<Image id="orbRightFill" src="file://{images}/custom_game/mmobar/blueCircle.png" />
+				<Image id="orbRightBackground" src="file://{images}/custom_game/mmobar/orb_back2.tga" />
+				<Image id="orbRightGloss" src="file://{images}/custom_game/mmobar/orb_gloss.tga" />
+				<Label id="orbRightText" />
+				<Label id="orbRightSmallText" />
+				<!-- <Image id="orbRightImgOverlay" class="galaxy" src="file://{images}/custom_game/mmobar/orb_filling9.tga" /> -->
+			</Panel>
+			
+			<Panel id="demon" hittest="false">
+				<Image hittest="false" id="demonImg" src="file://{images}/custom_game/mmobar/d3_demon2.tga" />
+			</Panel>
+			   
+			<Panel id="angel" hittest="false" >
+				<Image id="angelImg" hittest="false" src="file://{images}/custom_game/mmobar/d3_angel2.tga" />
+			</Panel>
+			
+			
+			<Panel id="buffbar">
+			</Panel>
+			
+			<Panel id="buttonsPanel" hittest="true" />
+			
+			<Panel id="addSkills" >
+				<Button id="addSkillsButton" class="addSkillsButtonAlive" > 
+					
+					<Label id="addSkillsLabel" text="+5" />
+				</Button>
+				<Image id="addSkillsBorder" hittest="false" src="file://{images}/custom_game/mmobar/portrait_border.tga" />
+				
+			</Panel>
+			<Panel id="itemsPanel" hittest="true" />
+			
+			<Button id="addStatsButton">
+				<Label id="addStatsLabel" text="" />
+			</Button>
+			
+			<Panel id="expBar">
+				<Button id="level">
+					<Label id="levelText" />
+				</Button>
+				<Panel id="expLeft" >
+					<Panel id="expDone" />
+				</Panel>
+			</Panel>
+			
+		</Panel>
+		<Panel id="compiling">
+				<Image hittest="false" src="file://{images}/custom_game/mmobar/hp_bar_basic.png" />
+				<Image hittest="false" src="file://{images}/custom_game/mmobar/hp_bar_medium.png" />
+				<Image hittest="false" src="file://{images}/custom_game/mmobar/hp_bar_epic.png" />
+				<Image hittest="false" src="file://{images}/custom_game/mmobar/hp_bar_grandeur.png" />
+		</Panel>
+	</Panel>
+	 
+	 
+	
+</root>
+ 

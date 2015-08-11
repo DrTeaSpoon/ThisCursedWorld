@@ -1,0 +1,52 @@
+<root>
+	<scripts>
+	</scripts>
+	
+	<styles>
+		<include src="file://{resources}/styles/custom_game/char_screen/root.css" />
+		<include src="file://{resources}/styles/custom_game/char_screen/stats.css" />
+		<include src="file://{resources}/styles/dotastyles.css" />
+	</styles>
+
+	<Panel>
+		<Panel id="StatsPanel">
+			<Label text="STATS" class="Header" />
+			
+			<Button id="StrengthButton" class="StatButton">
+				<Label id="StrengthLabel" class="StatLabel" text="123456" />
+			</Button>
+			
+			<Button id="AgilityButton" class="StatButton">
+				<Label id="AgilityLabel" class="StatLabel" text="12345" />
+			</Button>
+			
+			<Button id="IntelligenceButton" class="StatButton">
+				<Label id="IntelligenceLabel" class="StatLabel" text="1234" />
+			</Button>
+			
+			<Button id="VitalityButton" class="StatButton">
+				<Label id="VitalityLabel" class="StatLabel" text="12" />
+			</Button>
+			<Label id="CharacterHeader" text="CHARACTER" class="Header" />
+			
+			<Button id="CombatDataButton" class="DataButton"> 
+			</Button>
+			
+			<Button id="DefenseDataButton" class="DataButton">
+			
+			</Button>
+			
+			<Button id="SupportDataButton" class="DataButton">
+			
+			</Button>
+			
+			<Panel id="DataPanel">
+				
+				<Button id="DamagePanel">
+					<Label id="DamageText" text="12345" />
+				</Button>
+				
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

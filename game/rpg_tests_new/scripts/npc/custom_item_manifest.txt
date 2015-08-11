@@ -1,0 +1,131 @@
+"CustomItemManifest"
+{
+  "settings"
+  { 
+
+  }
+
+  "stats"
+  {
+
+  }
+  "psuedostats"
+  {
+    "AnyStat"
+    {
+      "01" "Strength"
+      "02" "Agility"
+      "03" "Intelligence"
+    }
+    "AnyDamage"
+    { 
+      "01" "FireDamage"
+      "02" "IceDamage"
+      "03" "LightningDamage"
+      "04" "PoisonDamage"
+      "05" "Damage"
+      "06" "MagicDamage"
+    }
+    "AnyResistance"
+    {
+      "01" "FireResistance"
+      "02" "IceResistance"
+      "03" "ColdResistance"
+      "04" "LightningResistance"
+    }
+    "AnyRating"
+    {
+      "01" "DodgeRating"
+      "02" "HitRating"
+      "03" "ArmorRating"
+      "04" "ArmorBreakRating"
+    }
+  }
+
+  "groups"
+  {
+    "SubjugatorProperty1"
+    {
+      "01"
+      {
+
+        "AnyStat" "250 350"
+      }
+    }
+    "SubjugatorProperty2"
+    {
+      "01"
+      {
+
+        "AnyDamage" "500 1250"
+      }
+    }
+    "SubjugatorProperty3"
+    {
+      "01"
+      {
+        "AnyRating" "300 500"
+
+      }
+    }
+    "SubjugatorProperty4"
+    {
+      "01"
+      {
+        "GoldFind" "100 200"
+        "MagicFind" "200 300"
+
+      }
+    }
+    "RandomMagicalProperty"
+    {
+    
+      "if lvl<10"
+      {
+        "AnyRating" "10 100"
+      }
+
+      "if lvl<15"
+      {
+        "if type=ring or type=amulet or type=gloves"
+        {
+          "AnyStat" 
+          {
+            "range" "10 50"
+            "distribution" "even"
+            "weight" "1"
+            "clvl" "10 20
+            "
+          }
+        }
+
+        "if type=weapon"
+        {
+          "01"
+          {
+            "Damage"
+            {
+              "range" "10 50"
+              "distrib" "extremely high"
+              "weight" "5"
+              "clvl" "10 20"
+            }
+            "AnyElementalDamage"
+            {
+              "exclude" "FireDamage|IceDamage"
+              "range" "10 2000"
+              "distrib" "extremely low"
+              "weight" "1"
+              "clvl" "10 200"
+            }
+          }
+        }
+      }
+    }
+
+    "RandomRareProperty"
+    {
+
+    }
+  }
+}
