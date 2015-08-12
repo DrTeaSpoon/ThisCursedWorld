@@ -17,7 +17,7 @@ Currently in dire need of an experienced level designer. The default fruity DotA
 **New Videos**
 
 *Identifying Items*
-https://www.youtube.com/watch?v=6X3f7o-3W4Q
+![ab](https://www.youtube.com/watch?v=6X3f7o-3W4Q)
 
 *Quest & Interact Systems*
 https://youtu.be/EjCdjaAS988?t=74
