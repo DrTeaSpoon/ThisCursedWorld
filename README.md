@@ -28,28 +28,25 @@ https://youtu.be/EjCdjaAS988?t=74
 ![cinfo](http://i.imgur.com/DrlYT8s.jpg)
 
 *Target UI*
-http://i.imgur.com/6Xr3TM3.jpg
+![c](http://i.imgur.com/6Xr3TM3.jpg)
 
 *WIP Inventory*
-http://i.imgur.com/D1YyQZI.jpg
+![d](http://i.imgur.com/D1YyQZI.jpg)
 
 *WIP MMOBar*
-http://i.imgur.com/SOvVqen.jpg
+![e](http://i.imgur.com/SOvVqen.jpg)
 
 *Custom Tooltips*
-http://i.imgur.com/LkTEenr.jpg
+![f](http://i.imgur.com/LkTEenr.jpg)
 
 *Unidentified Items*
-http://i.imgur.com/GAqUxRv.jpg
+![g](http://i.imgur.com/GAqUxRv.jpg)
 
 *Random Generated Stats*
-http://i.imgur.com/2MZrxXi.jpg
-
+![h](http://i.imgur.com/2MZrxXi.jpg)
 
 *Interact System*
-http://i.imgur.com/npc3jEn.png?1
-
-*
+![i](http://i.imgur.com/npc3jEn.png?1)
 
 **Old Videos**
 
