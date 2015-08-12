@@ -25,7 +25,7 @@ https://youtu.be/EjCdjaAS988?t=74
 **New Screenshots**
 
 *Character Info*
-[![cinfo](http://i.imgur.com/DrlYT8s.jpg)]
+![cinfo](http://i.imgur.com/DrlYT8s.jpg)
 
 *Target UI*
 http://i.imgur.com/6Xr3TM3.jpg
