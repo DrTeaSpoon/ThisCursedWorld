@@ -1,0 +1,79 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "hero.vfx"
+
+	//---- Blend To Full ----
+	g_flEnvMapBlendToFull "0.000"
+	g_flMetalnessBlendToFull "0.000"
+	g_flReflectionsTintByBaseBlendToNone "0.000"
+	g_flSelfIllumBlendToFull "0.000"
+	g_flSpecularBlendToFull "0.000"
+	g_flSpecularExponentBlendToFull "0.000"
+
+	//---- Cloak ----
+	g_flCloakBlurAmount "0.005"
+	g_flCloakIntensity "0.850"
+	g_flCloakRefractAmount "0.100"
+	g_flMaterialCloakFactor "0.000"
+	g_vCloakColorTint "[1.000 1.000 1.000]"
+
+	//---- Color ----
+	g_flDiffuseModulationAmount "1.000"
+	g_flTexCoordRotation "0.000"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "panorama/images/custom_game/char_screen/inventory/btnweaponright.tga"
+
+	//---- Fresnel ----
+	TextureFresnelWarpColor "materials/default/default_fresnelwarpcolor.tga"
+	TextureFresnelWarpRim "materials/default/default_fresnelwarprim.tga"
+	TextureFresnelWarpSpec "materials/default/default_fresnelwarpspec.tga"
+
+	//---- Lighting ----
+	g_flAmbientScale "1.000"
+	g_flBloomScale "0.000"
+	g_flBloomShift "0.000"
+	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Normal Map ----
+	TextureNormal "panorama/images/custom_game/char_screen/inventory/btnhelmet.tga"
+
+	//---- Rim ----
+	g_flRimLightScale "1.000"
+	g_vRimLightColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Specular ----
+	g_flSpecularExponent "32.000"
+	g_flSpecularScale "1.000"
+	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	Attributes
+	{
+		unnamed_01 ""
+	}
+
+	"StateHistory"
+	{
+		"State_0000"
+		{
+			"ThumbnailCRC32"		"0xBEA822E2"
+			"Thumbnail"		"/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAgACADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDzqiiioP0wKKKKACiiigAooooA/9k="
+			"Material"
+			{
+				"Layer0"
+				{
+					"shader"		"global_lit_simple.vfx"
+					"g_vColorTint"		"[1.000000 0.000000 0.317647 0.000000]"
+					"g_vTexCoordOffset"		"[0.000 0.000]"
+					"g_vTexCoordScale"		"[1.000 1.000]"
+					"TextureColor"		"materials/default/default_color.tga"
+					"Attributes"
+					{
+					}
+				}
+			}
+		}
+	}
+}

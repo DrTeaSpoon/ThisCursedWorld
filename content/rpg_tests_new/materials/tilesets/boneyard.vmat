@@ -1,0 +1,56 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "multiblend.vfx"
+
+	//---- Normal Maps ----
+	F_NORMAL_MAP 1
+
+	//---- Layer 0 ----
+	g_flTexCoordRotate0 "0.000"
+	g_flTexCoordScale0 "1.000"
+	g_vColorTint0 "[0.772549 0.772549 0.772549 0.000000]"
+	g_vTexCoordOffset0 "[0.000 0.000]"
+	g_vTexCoordScroll0 "[0.000 0.000]"
+	TextureColor0 "textures/boneyard_forest/groundroots_festeringb_1024_diff_trout_result.png"
+	TextureNormal0 "materials/blend/tbr_grass_moss_02_normal.tga"
+
+	//---- Layer 1 ----
+	g_flTexCoordRotate1 "0.000"
+	g_flTexCoordScale1 "1.000"
+	g_vColorTint1 "[0.854902 0.854902 0.854902 0.000000]"
+	g_vTexCoordOffset1 "[0.000 0.000]"
+	g_vTexCoordScroll1 "[0.000 0.000]"
+	TextureColor1 "textures/boneyard_forest/groundbrick_512_diff_b_trout_result.png"
+	TextureNormal1 "materials/blend/tbr_grass_dead_01_normal.tga"
+	TextureRevealMask1 "materials/blend/tbr_grass_01_blend.tga"
+
+	//---- Layer 2 ----
+	g_flTexCoordRotate2 "0.000"
+	g_flTexCoordScale2 "1.000"
+	g_vColorTint2 "[0.784314 0.784314 0.784314 0.000000]"
+	g_vTexCoordOffset2 "[0.000 0.000]"
+	g_vTexCoordScroll2 "[0.000 0.000]"
+	TextureColor2 "textures/boneyard_forest/groundgrass_festering_512_diff_trout_result.png"
+	TextureNormal2 "materials/blend/tbr_grass_rock_01_normal.tga"
+	TextureRevealMask2 "materials/blend/tbr_grass_01_blend.tga"
+
+	//---- Layer 3 ----
+	g_flTexCoordRotate3 "0.000"
+	g_flTexCoordScale3 "1.000"
+	g_vColorTint3 "[0.831373 0.831373 0.831373 0.000000]"
+	g_vTexCoordOffset3 "[0.000 0.000]"
+	g_vTexCoordScroll3 "[0.000 0.000]"
+	TextureColor3 "textures/boneyard_forest/groundgravel_wildernessa_trout_result.png"
+	TextureNormal3 "materials/blend/tbr_gravel_01_normal.tga"
+	TextureRevealMask3 "materials/blend/tbr_grass_01_blend.tga"
+
+	//---- Normal Map ----
+	g_flBumpStrength "2.000"
+
+	Attributes
+	{
+		dota.nav.walkable "1"
+	}
+}

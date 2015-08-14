@@ -102,7 +102,7 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 					}
 				}else{
 					y.itemPanel.data().Highlight();
-					selectedPanel = {type: "equipment", slot: y.slotName panel: y};
+					selectedPanel = {type: "equipment", slot: y.slotName, panel: y};
 				}
 			});
 		}(y));
@@ -222,7 +222,7 @@ function UnequipItem(slot, toSlot){
 			}
 		}
 	}else{ //Double clicked equipment - automatically find a slot
-		for(int i = 1; i <= maxInventory; i++){ //Loop over every slot
+		for(var i = 1; i <= maxInventory; i++){ //Loop over every slot
 			var inventoryPanel = $('#Inventory'+i); //Grab panel 'i'
 			if(!enumedPanel.item){ //If the item doesn't exist on the panel, put it there!
 				
