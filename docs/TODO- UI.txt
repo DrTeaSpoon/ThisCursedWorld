@@ -1,0 +1,9 @@
+Stat Screen-
+Adding/Subtracting Stats
+Bottom panel (ele dmg, etc)
+
+Inventory-
+Finish equipment
+Finish charms
+Finish dragging
+Stress test
