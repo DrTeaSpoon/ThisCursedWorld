@@ -1,0 +1,8 @@
+Str melee - phantom lancer - Barak'Thul the Temple Guardian - weapon 2h Pike
+Str "ranged" - troll warlord - Amani the Berserker - weapon 2 1h Axe
+
+Agi melee - phantom assassin Void Hunterb - weapon 2h Glaive
+Agi ranged- drow ranger Redeye - weapon 2h Bow ofh Arrows
+
+Int melee- vengeful spirit Shadow - 2h Disc
+Int ranged- skywrath mage Enforcer - 2h Staff

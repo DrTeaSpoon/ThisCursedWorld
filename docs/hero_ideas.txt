@@ -8,7 +8,7 @@ phase hit - hit, has a chance to apply a slow debuff
 crawling hit - hit that launches a ghost that bounces between targets and has a chance to apply a curse
 cleave - 60%
 
-
+Requires and consumes phase shift-
 jump - jumps towards target , delain burst damage and aggroing all mbos to point
 Heralding Call - aggros all nearby
 Phase Aura - gain a shield that has armor
@@ -23,13 +23,285 @@ greater phase shft - 15% hp loss 3% on hit
 call of the ancients
 meteor smash
 
-ultimate- soul tap- turns all nearby units into phase shift mode. attaking them turns your hero into phaseshift mode. bosses gain phaseshift mode 5x
+UBERZ
+Rage- Ultimate Rage - transform, +as +dmg +rage stacks
+PhaseShift- soul tap- turns all nearby units into phase shift mode. attaking them turns your hero into phaseshift mode. bosses gain phaseshift mode 5x
 
-summoning tree beastmaster-
-boars
-wolves
-bears
-tame pet
-totemic call- dmg
-totemic call - life
-totemic call - nova
+
+
+
+
+
+
+
+
+
+
+
+
+TEMPLE GUARDIAN (phantom lancer) -
+TREE 1- Mirror Images
+FUNDAMENTAL 1- Splitting Hit - hit that has a chance to create a mirror image
+FUNDAMENTAL 2- Focus Fire - hit that aggros a nearby image to hit the target, lower chance of creating an image
+
+PRIMARY 1- Movement
+PRIMARY 2- Movement
+PRIMARY 3- Absorb - Consume an image to absorb some of its health
+PRIMARY 4- Single Targe
+PRIMARY 5 - Single Target
+PRIMARY 6- Detonate- Blow up the selected image to do damage to nearby enemies
+PRIMARY 7- AOE 
+PRIMARY 8- AOE 
+PRIMARY 9- AOE
+
+ULTIMATE 1- 
+ULTIMATE 2- Seven Sided Strike - each strike creates an illusion
+
+TREE 2- Taunty
+FUNDAMENTAL 1- Hit that gives a small entity shield
+FUNDAMENTAL 2- Hit that knockback and deals damage based on shield remaining
+
+PRIMARY 1- Movement
+PRIMARY 2- Movement
+PRIMARY 3- Heal
+PRIMARY 4- Single Target
+PRIMARY 5- Single Target
+PRIMARY 6- Aggro Grab
+PRIMARY 7- Aggro Grab
+PRIMARY 8- AOE
+PRIMARY 9- AOE
+Primary 10 - Shield Throw- 
+
+ULTIMATE 2- Mountain King- Consume your shield and slam down with all of might dealing dmg based on shield
+
+TREE 3- nyi
+
+UBERS-
+Mirrors: Bolster - Shout, refreshing hp/duration of all images and giving them a buff
+Taunt: Living Giant - becomes immune for a short time. At the end of the time, he will explode dealing damage / gaining armor for damage taken
+
+
+
+
+
+
+
+
+
+
+
+
+ENFORCER (skyw mage)-
+TREE 1- Fire Cold Lightning
+FUNDAMENTAL 1- Firebolt
+FUNDAMENTAL 2- Chain Lightning
+FUNDAMENTAL 3- Icebolt
+
+PRIMARY 1- Fireball
+PRIMARY 2- Frost Nova (warcraft 3 style)
+PRIMARY 3- Power Stone - Creates a stone that emits lightning at nearby targets
+PRIMARY 4- Fire walk (creates lava at feet for time)
+PRIMARY 5- Frozen Orb
+PRIMARY 6- Meteor
+PRIMARY 7- Lightning Armor (increased armor, +damage on hit)
+PRIMARY 8- Destruction (streams of fire/lightning)
+
+UBER 1- Trinity Nova (all 3 at once)
+
+TREE 2- Posion Arcana
+FUNDAMENTAL 1- Poison Bolt
+FUNDAMENTAL 2- Arcane Bolt
+
+PRIMARY 1- Arcane Torrent
+PRIMARY 2- Arcane Hydras
+PRIMARY 3- Arcane Lazaaah (diablo 3 arcane modifier)
+PRIMARY 4- Push
+PRIMARY 5- Poison Cloud
+PRIMARY 6- Poison Angel
+PRIMARY 7- Acid Fiend - dd squishy, +ele dmg aura
+PRIMARY 8- Sludge Monster - tanky, poison damage on hit
+
+UBER 1- Corruption - wave that amplifies all poison damage on targets
+UBER 2- Rain of Arcane
+
+TREE 3-
+
+UBERS-
+FCL- Archon (boosts spell damage immsensely, transfoms fundamental skills into uber skillz, reducesc cd mana cost)
+PoisonArcana - Summon Shadow Fiend 
+
+
+
+
+
+
+
+
+
+
+
+
+
+VOID HUNTER (phantom assassin)
+TREE 1- debuffs (spells that deal more dmg when targets have debuffs)
+FUNDAMENTAL 1-
+FUNDAMENTAL 2-
+
+PRIMARY 1-
+PRIMARY 2-
+PRIMARY 3-
+PRIMARY 4-
+PRIMARY 5-
+PRIMARY 6-
+PRIMARY 7-
+PRIMARY 8-
+PRIMARY 9-
+
+ULTIMATE 1-
+ULTIMATE 2-
+TREE 2- Killing Spirit - huge single target damage, some blood-for-blood aoe type abilities
+TREE 3-
+UBERS-
+
+
+
+
+
+
+
+
+
+
+
+
+
+SHADOW (vengeful spirit)-
+TREE 1- Psionic Life (mana/life leech oriented) (mana regen untill full when it leeches life, spells cost life/mana)
+KEYSTONE 1- mana/life leech hit
+KEYSTONE 2- throw glave, slightly less damage
+
+PRIMARY 1-
+PRIMARY 2-
+PRIMARY 3-
+PRIMARY 4-
+PRIMARY 5-
+PRIMARY 6-
+PRIMARY 7-
+PRIMARY 8- 
+
+UBER 1-
+UBER 2-
+
+TREE 2- Confusion
+KEYSTONE 1- Mind Link - 5sec or so debuff, every hit hits every unit with mind link
+KEYSTONE 2- Shatter - bash
+KEYSTONE 3- 
+
+PRIMARY 1-
+PRIMARY 2-
+PRIMARY 3-
+PRIMARY 4-
+PRIMARY 5-
+PRIMARY 6-
+PRIMARY 7-
+PRIMARY 8-
+
+UBER 1-
+
+TREE 3-
+UBERS-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REDEYE (Drow ranger)-
+TREE 1- Elemental Archery
+FUNDAMENTAL 1-
+FUNDAMENTAL 2-
+
+PRIMARY 1-
+PRIMARY 2-
+PRIMARY 3-
+PRIMARY 4-
+PRIMARY 5-
+PRIMARY 6-
+PRIMARY 7-
+PRIMARY 8-
+PRIMARY 9-
+
+ULTIMATE 1-
+ULTIMATE 2-
+
+TREE 2- Naturism
+FUNDAMENTAL 1-
+FUNDAMENTAL 2-
+
+PRIMARY 1- Summon Bera
+PRIMARY 2- Vault
+PRIMARY 3- Next Shot Effect
+PRIMARY 4- Next Shot Effect
+PRIMARY 5- Next Shot Effect
+PRIMARY 6- Next Shot Effet
+PRIMARY 7-
+PRIMARY 8-
+PRIMARY 9-
+
+ULTIMATE 1-
+ULTIMATE 2-
+
+TREE 3-
+
+UBERS- 
+
+
+
+
+
+SILVERSIGHT (Oracle)
+TREE 1- White Magic
+FUNDAMENTAL 1- Holy Bolt - deals damage to enemies heals allies (heals alot more than damage)
+FUNDAMENTAL 2- Holy spike - spike that deals damage
+
+PRIMARY 1- Heal
+PRIMARY 2- Heal
+PRIMARY 3- Heal
+PRIMARY 4- Both
+PRIMARY 5- Damage
+PRIMARY 6- Damage
+PRIMARY 7- Damage
+PRIMARY 8- Both
+PRIMARY 9- Both
+
+ULTIMATE 1- Emerge - Fully heal a target and deal damage to all nearby based on hp healed
+ULTIMATE 2-
+
+TREE 2- Summons
+FUNDAMENTAL 1-
+PRIMARY 1- Summon 
+PRIMARY 2- Summon
+PRIMARY 3- Summon
+PRIMARY 4- Summon
+PRIMARY 5- Buff
+PRIMARY 6- Buff
+PRIMARY 7- Buff
+PRIMARY 8- Totem
+PRIMARY 9- Totem
+PRIMARY 10- Heal
+
+ULTIMATE 1-
+ULTIMATE 2-
+
+UBERS
+White Magic- Holy Nova
+Summons - Summon Ultima- duplicates white magic spells cast
