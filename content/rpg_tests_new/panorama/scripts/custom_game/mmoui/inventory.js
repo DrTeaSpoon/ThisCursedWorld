@@ -1,17 +1,17 @@
 "use strict";
 
 function UpdateInventoryItem( itemSlot, item, queryUnit, parentPanel )
-{
+{ 
 	var abilityPanel = $.CreatePanel( "Panel", parentPanel, "" );
-	abilityPanel.SetAttributeInt( "itemSlot", itemSlot );
+	abilityPanel.SetAttributeInt( "itemSlot", itemSlot ); 
 	abilityPanel.SetAttributeInt( "item", item );
 	abilityPanel.SetAttributeInt( "queryUnit", queryUnit );
 	abilityPanel.BLoadLayout( "file://{resources}/layout/custom_game/inventory_item.xml", false, false );
-}
+}   
 
 function UpdateInventory()
 {
-	var stashPanel = $( "#stash_row" );
+	var stashPanel = $( "#stash_row" ); 
 	if ( !stashPanel )
 		return;
 

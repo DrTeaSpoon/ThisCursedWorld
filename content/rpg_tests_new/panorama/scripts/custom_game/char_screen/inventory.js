@@ -92,9 +92,11 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 				$.Msg("On Activate : #" + y.slotName);
 				if(selectedPanel){
 					if(selectedPanel.panel == y){
-						selectedPanel = null;
+						selectedPanel = null; 
 						UnequipItem(y.slotName);
-						y.itemPanel.data().Highlight();
+						if(y.itemPanel){
+							y.itemPanel.data().Highlight();
+						}
 					}else if(selectedPanel.type == "inventory"){
 						UnequipItem(y.slotName, selectedPanel.slot);
 					}else{
@@ -189,7 +191,9 @@ function SwitchInventoryPanels(panelA, panelB){
 
 /*Unequips the equipment item in *slot*. Optionally, specify "toSlot" to swap to a specified inventory slot / equip the item at toSlot */
 function UnequipItem(slot, toSlot){ 
+	$.Msg("UNEQUIPUFNDSAJFNSPDFIASDF");
 	var equipmentPanel = $('#'+slot); //Equipment panel
+	$.Msg("Unequip Item " + slot);
 
 	if(toSlot){ //Not double clicked - click eq than click something else
 		var toPanel = $('#Inventory'+toSlot); //The inventory item
@@ -224,7 +228,7 @@ function UnequipItem(slot, toSlot){
 	}else{ //Double clicked equipment - automatically find a slot
 		for(var i = 1; i <= maxInventory; i++){ //Loop over every slot
 			var inventoryPanel = $('#Inventory'+i); //Grab panel 'i'
-			if(!enumedPanel.item){ //If the item doesn't exist on the panel, put it there!
+			if(!inventoryPanel.item){ //If the item doesn't exist on the panel, put it there!
 				
 				var eventData = {player:Game.GetLocalPlayerID(), item:equipmentPanel.item, toSlot: i}
 				GameEvents.SendCustomGameEventToServer(UNEQUIP_ITEM_EVENT, eventData );
@@ -233,7 +237,7 @@ function UnequipItem(slot, toSlot){
 				inventoryPanel.ided = equipmentPanel.ided;
 				inventoryPanel.stats = equipmentPanel.stats;
 				GenerateItem(inventoryPanel,inventoryPanel.ided,inventoryPanel.stats);
-				ClearItem(equipmentPanel);
+				FullClearItem(equipmentPanel);
 				
 				return;
 			}
@@ -241,11 +245,226 @@ function UnequipItem(slot, toSlot){
 	}
 }
 
-function EquipItem(inventorySlot, equipmentSlot){
-	$.Msg("SLOT : " + $('#Inventory'+inventorySlot).stats.requirements.slot);
+function CheckItemRequirements(item){
+	return true;
 }
 
-function AddItemToInventory(item, slot, ided, stats){
+function CheckWeaponCompatibility(mainhand, offhand){
+	if(mainhand.requirements.slot.toLowerCase() == "weapon twohand"){
+		$.Msg("NOT COMPATIBLE NOT COMPATIBLE");
+		return false;
+	}
+	$.Msg("SLOT : " + mainhand.requirements.slot.toLowerCase());
+	return true;
+}
+function CheckSoulCompatibility(weapon, soul){
+	return true;
+}
+
+function EquipItem(inventorySlot, equipmentSlot){
+	var itemPanel = $('#Inventory'+inventorySlot);
+	var itemEntIndex = itemPanel.item
+	if(!itemEntIndex) return;
+	var item = itemPanel.stats;
+	if(!item) return;
+	//if(!itemPanel.ided) return;
+	var slot = item.requirements.slot;
+	$.Msg("SLOT : " + slot);
+	if(!slot) return;
+	var targetSlot = equipmentSlot;
+	var needsToUnequip = []; 
+	if(slot.toLowerCase() == "ring"){
+	 if(targetSlot){
+		 if(targetSlot.toLowerCase() == "ringleft" || targetSlot.toLowerCase() == "ringright"){
+			 
+		 }else{
+			 return;
+		 }
+	 }else{
+		 if(!$('#RingLeft').item){
+			targetSlot = "RingLeft";
+		 }else if(!$('#RingRight').item){
+			targetSlot = "RingRight";
+		 }else{
+			targetSlot = "RingLeft";
+		 }
+	 }
+	}else if(slot.toLowerCase() == "weapon"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "weaponleft" || targetSlot.toLowerCase() == "weaponright"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "weaponleft";
+		}
+		if(targetSlot.toLowerCase() == "weaponleft"){
+			targetSlot = "WeaponLeft";
+			var offhand = $('#WeaponRight').stats;
+			if(offhand && !CheckWeaponCompatibility(item, offhand)){
+				needsToUnequip.push('WeaponRight');
+			}
+			
+			var mainhandSoul = $('#SoulLeft').stats;
+			if(mainhandSoul && !CheckSoulCompatibility(item, mainhandSoul)){
+				needsToUnequip.push('SoulLeft');
+			}
+		}else{
+			targetSlot = "WeaponRight";
+			var mainhand = $('#WeaponLeft').stats;
+			if(mainhand && !CheckWeaponCompatibility(item, mainhand)){
+				needsToUnequip.push('WeaponLeft');
+			}
+			
+			var offhandSoul = $('#SoulLeft').stats;
+			if(offhandSoul && !CheckSoulCompatibility(item, offhandSoul)){
+				needsToUnequip.push('SoulLeft');
+			}
+		}
+	}else if(slot.toLowerCase() == "weapon offhand"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "weaponright"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "WeaponRight";
+		}
+		
+		var mainhand = $('#WeaponLeft').stats;
+		if(mainhand && !CheckWeaponCompatibility(item, mainhand)){
+			needsToUnequip.push('WeaponLeft');
+		}
+		
+		var offhandSoul = $('#SoulLeft').stats;
+		if(offhandSoul && !CheckSoulCompatibility(item, offhandSoul)){
+			needsToUnequip.push('SoulLeft');
+		}
+		targetSlot = "WeaponRight";
+	}else if(slot.toLowerCase() == "weapon twohand" || slot.toLowerCase() == "weapon mainhand"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "weaponleft"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "WeaponLeft";
+		}
+		
+		var offhand = $('#WeaponRight').stats;
+		if(offhand && !CheckWeaponCompatibility(item, offhand)){
+			needsToUnequip.push('WeaponRight');
+		}
+		
+		var mainhandSoul = $('#SoulLeft').stats;
+		if(mainhandSoul && !CheckSoulCompatibility(item, mainhandSoul)){
+			needsToUnequip.push('SoulLeft');
+		}
+		
+		targetSlot = "WeaponLeft";
+	}else if(slot.toLowerCase() == "soul"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "soulleft" || targetSlot.toLowerCase() == "soulright"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "SoulLeft";
+		}
+		
+		var corWeapon;
+		if(targetSlot.toLowerCase() == "soulleft"){
+			corWeapon = $('#WeaponLeft').stats;
+		}else{
+			corWeapon = $('#WeaponRight').stats;
+		}
+		if(!CheckSoulCompatibility(corWeapon, item)){
+			return;
+		}
+		
+	}else if(slot.toLowerCase() == "soul offhand"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "soulright"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "SoulRight";
+		}
+		if(!CheckSoulCompatibility($('#WeaponRight').stats, item)){
+			return;
+		}
+	}else if(slot.toLowerCase() == "soul twohand"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "soulleft"){
+				if(!$('#WeaponLeft').stats.requirements.slot == "weapon twohand"){
+					return;
+				}
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "SoulLeft"; 
+		}
+		if(!CheckSoulCompatibility($('#WeaponLeft').stats, item)){
+			return;
+		}
+	}else if(slot.toLowerCase() == "soul mainhand"){
+		if(targetSlot){
+			if(targetSlot.toLowerCase() == "soulleft"){
+				
+			}else{
+				return;
+			}
+		}else{
+			targetSlot = "SoulLeft";
+		}
+		if(!CheckSoulCompatibility($('#WeaponLeft').stats, item)){
+			return; 
+		}
+    }else{ 
+		if(!targetSlot){ 
+			targetSlot = slot;
+		}else{
+			if(targetSlot != slot){
+				return;
+			}
+		}
+	}
+	
+	if(!CheckItemRequirements(item)){
+	//	return;
+	}
+	FullClearItem(itemPanel);
+	if(targetSlot == "Head") targetSlot = "Helm";
+	if(targetSlot == "Legs") targetSlot = "Pants";
+	if(targetSlot == "Feet") targetSlot = "Boots";
+	
+	for(var x in needsToUnequip){
+		UnequipItem(needsToUnequip[x]);
+	}
+	$.Msg("Target Slot: " + targetSlot);
+	if($('#'+targetSlot).item){ 
+		UnequipItem(targetSlot);
+	}
+	var panel = $('#'+targetSlot);
+	panel.item = itemEntIndex;
+	panel.ided = true;
+	panel.stats =  item;
+	GenerateItem(panel,true,item);
+
+	var t = {player:Game.GetLocalPlayerID(), item:panel.item, targetSlot: targetSlot}
+	GameEvents.SendCustomGameEventToServer(EQUIP_ITEM_EVENT, t );
+	
+	//TODO: Apply bonuses
+}
+
+function AddItemToInventory(item, slot, ided, stats){  
 	var panel = null;
 	if(ided !== null && stats){ //Adding Item From LUA
 		panel = $('#Inventory' + slot);
@@ -254,7 +473,7 @@ function AddItemToInventory(item, slot, ided, stats){
 			$.Msg("Your Inventory is Full");
 			return;
 		}
-		ClearItem(panel);
+		ClearItem(panel); 
 		panel.item = item;
 		panel.ided = ided;
 		panel.stats = stats;
@@ -340,10 +559,6 @@ function GetParentPanel(item){
 	}
 }
 
-function UnequipItem(slot, invbutton){
-
-}
-
 function AddItemToEquipment(item, slot, invBypass){
 	var itemTable = ItemTable[Abilities.GetAbilityName(item)];
 	var itemSlot = itemTable.Slot;
@@ -377,15 +592,19 @@ function AddItemToCharms(itemTable, slot){
 function DeleteInventoryItem(slot){ 
 
 }
-function UnequipItem(slot){
-
-}
 function DeleteCharm(slot){
 
 }
 
 function OnRecieveItemTable(keys){
 	ItemTable = keys.itemTable
+}
+
+function FullClearItem(item){
+	ClearItem(item);
+	item.item = null;
+	item.ided = null;
+	item.stats = null;
 }
 
 function FullClearArray(arr){
@@ -395,12 +614,13 @@ function FullClearArray(arr){
 			arr[x].item = null;
 			arr[x].ided = null;
 			arr[x].stats = null;
-		}
-	}
-}
-	
+		} 
+	} 
+} 
+	 
 
-function OnRecieveFullUpdate(keys){
+function OnRecieveFullUpdate(keys){ 
+	$.Msg("Full Update");
 	var equipment = keys.equipment
 	var charms = keys.charms
 	var items = keys.inventory
@@ -410,16 +630,22 @@ function OnRecieveFullUpdate(keys){
 	FullClearArray(allCharmPanels); 
 	
 	allCharms = [];
-	allEquipmentItems = []; 
+	allEquipmentItems = [];  
     allInventoryItems = []; 
 	
+	for(var x in equipment){  
+		AddItemToInventory(equipment[x].entIndex, 1, true, equipment[x].stats);
+		EquipItem(1);
+	}
+	
 	for(var x in items){
+	$.Msg("Item"+ items[x].entIndex);
 		AddItemToInventory(items[x].entIndex, items[x].slot, items[x].ided, items[x].stats);
 	}
 	
 }
 
-function OnItemPickup(keys){
+function OnItemPickup(keys){ 
 	if(keys.player != Game.GetLocalPlayerID()) return;
 	var item = keys.item;
 	AddItemToInventory(item,keys.slot,keys.ided,keys.stats); 

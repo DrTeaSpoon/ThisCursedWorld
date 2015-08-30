@@ -9,7 +9,6 @@ if not MMOUI then
 	CustomGameEventManager:RegisterListener( "mmoui_get_abil_special", Dynamic_Wrap(MMOUI, 'getTable'))
 	CustomGameEventManager:RegisterListener( "mmoui_get_class", Dynamic_Wrap(MMOUI, 'getClassification'))
 	CustomGameEventManager:RegisterListener( "mmoui_get_identified", Dynamic_Wrap(MMOUI, 'getIdentified'))
-	CustomGameEventManager:RegisterListener( "mmoui_identify_item", Dynamic_Wrap(MMOUI, 'identifyItem'))
 	CustomGameEventManager:RegisterListener( "inventory_updated", Dynamic_Wrap(MMOUI, 'OnInventoryChanged'))
 end
 local lastTable = nil
@@ -96,13 +95,16 @@ function OnIdentifyItemCastFinished(keys) --When the abil finishes, tell everyon
 end
 
 function MMOUI:identifyItem(keys) --Identifies the given item
-	--print("ID ITEM! : " .. keys.itemIndex)
-	--print("PLAYER ! .. " .. keys.player)
+	print("ID ITEM! : " .. keys.itemIndex)
+	print("PLAYER ! .. " .. keys.player)
 	local item = EntIndexToHScript(keys.item)
 	GameRules.lastId[keys.player] = EntIndexToHScript(keys.item)
 	local tbl = GameRules.ItemDataTable[item:GetEntityIndex()]
 	if tbl.ided == false then
+		print("IDING!")
 		MMOUI.OrderUnitIdentifyItem(PlayerResource:GetPlayer(keys.player):GetAssignedHero())
+	else
+		print("IDED!!")
 	end
 end
 
@@ -158,3 +160,5 @@ function MMOUI.getInt(keys) --unused
 		CustomGameEventManager.Send_ServerToAllClients("mmoui_return_int_property", {player=keys.player, propertyId=keys.propertyId, value=keys.unit:GetAbilityPoints()})
 	end
 end
+
+	CustomGameEventManager:RegisterListener( "mmoui_identify_item", MMOUI.identifyItem)

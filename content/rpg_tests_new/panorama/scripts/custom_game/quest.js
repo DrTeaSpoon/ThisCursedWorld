@@ -59,6 +59,11 @@ var OnQuestHide = function(){
 		questHide = true;
 	}
 };
+var hide = function(){
+	$.GetContextPanel().visible = false;
+	$.Schedule(0.03, hide);
+}
+hide();
 
 var playerId = Players.GetLocalPlayer();
 

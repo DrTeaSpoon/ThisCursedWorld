@@ -9,7 +9,7 @@
 	width: 1020px;
 	height: 470px;
 	margin-left: -15px;
-	margin-top: -35px;
+	margin-top: -15px;
 	margin-right: -22px;
 	border-bottom: 9px solid #000000FF;
 	
@@ -84,14 +84,14 @@
 .InventoryItem{
 	width: 64px;
 	height: 64px;
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.png");
 	background-repeat: round;
 }
 
 .Charm{
 	width: 64px;
 	height: 64px;
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.png");
 	background-repeat: round;
 }
 
@@ -102,44 +102,44 @@
 }
 
 #Helm{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.png");
 }
 #Shoulders{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBracers.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBracers.png");
 }
 #Chest{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNArmor.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNArmor.png");
 }
 #Gloves{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNGloves.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNGloves.png");
 }
 #Pants{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNPants.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNPants.png");
 }
 #Necklace{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryAmulet.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryAmulet.png");
 }
 #RingLeft{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.png");
 }
 #RingRight{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNRing.png");
 }
 #Belt{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryBelt.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNInventoryBelt.png");
 }
 #Boots{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBoots.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNBoots.png");
 }
 #WeaponLeft{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponLeft.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponLeft.png");
 }
 #SoulLeft{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.png");
 }
 #WeaponRight{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponRight.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNWeaponRight.png");
 }
 #SoulRight{
-	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.TGA");
+	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNSpecial.png");
 }

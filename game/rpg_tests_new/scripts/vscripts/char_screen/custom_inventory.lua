@@ -152,7 +152,7 @@ function CustomInventory:UnEquipCharm(item, hero)
 end
 
 function CustomInventory:OnItemPickup(item, hero)
-		Items:SetupItem(item)
+	Items:SetupItem(item)
 	if Items:IsCustomItem(item) then
 
 		hero:DropItemAtPositionImmediate(item, hero:GetAbsOrigin())
@@ -172,7 +172,34 @@ function CustomInventory:OnItemDropped(item, hero)
 end
 
 
-function CustomInventory:OnItemEquipped(item, hero)
+function CustomInventory:OnItemEquipped(keys)
+	local item = keys.item
+	PrintTable(keys)
+	local player = keys.player
+	local target = keys.targetSlot
+	local unit = PlayerResource:GetPlayer(player):GetAssignedHero() 
+	local t = {entIndex= item, stats=Items:GetAbilitySpecial(EntIndexToHScript(item))}
+	CustomInventory.Inventory[unit:GetEntityIndex()].equipment[target]= t;
+	for k,v in pairs(CustomInventory.Inventory[unit:GetEntityIndex()].inventory) do
+		print("ENUMING" .. item)
+ 		if v.entIndex == item then
+ 			CustomInventory.Inventory[unit:GetEntityIndex()].inventory[k] = nil
+ 			print("REMOVING GG " .. k) 
+ 			goto gg
+ 		end
+	end
+	::gg::
+	print("Equipped", target, item)
+	Items:ApplyBonuses(EntIndexToHScript(item), unit)
+end
+
+function CustomInventory:OnItemUnequipped(keys)
+	local item = keys.item
+	local player = keys.player
+	local target = keys.targetSlot
+	local unit = PlayerResource:GetPlayer(player):GetAssignedHero()
+	CustomInventory:OnItemPickup(EntIndexToHScript(item), unit)
+	Items:RemoveBonuses(EntIndexToHScript(item), unit)
 
 end
 
@@ -272,7 +299,7 @@ function CustomInventory:OnRequestFullUpdate(keys)
 	local invTable = CustomInventory.Inventory[unit:GetEntityIndex()]
 	if not invTable then return end
 
-	local charms = {}
+	local charms = {} 
 	local equipment = {}
 	local inventory = {}
 
@@ -285,7 +312,18 @@ function CustomInventory:OnRequestFullUpdate(keys)
 			t.ided = Items:IsIdentified(v.item)
 		table.insert(inventory, t)
 		end
+	end 
+
+	for k,v in pairs(invTable.equipment) do
+		local t = {}
+		t.entIndex = v.entIndex
+		t.slot = k
+		t.stats = v.stats
+		t.ided = v.ided
+		table.insert(equipment, t)
 	end
+	print("EQUIPMENT")
+	PrintTable(equipment)
 	local t = {player=player, charms=charms, equipment=equipment, inventory=inventory}
 	CustomGameEventManager:Send_ServerToAllClients(SEND_FULL_UPDATE, t)
 
@@ -295,6 +333,7 @@ end
 function CustomInventory:RegisterEvents()
 	CustomGameEventManager:RegisterListener( "inventory_updated", Dynamic_Wrap(CustomInventory, 'OnInventoryChanged'))
 	CustomGameEventManager:RegisterListener(EQUIP_ITEM_EVENT, Dynamic_Wrap(CustomInventory, 'OnItemEquipped'))
+	CustomGameEventManager:RegisterListener(UNEQUIP_ITEM_EVENT, Dynamic_Wrap(CustomInventory, 'OnItemUnequipped'))
 	CustomGameEventManager:RegisterListener(REQUEST_FULL_UPDATE, Dynamic_Wrap(CustomInventory, 'OnRequestFullUpdate'))
 	CustomGameEventManager:RegisterListener(ITEM_CHANGE_SLOT_EVENT, Dynamic_Wrap(CustomInventory, 'OnItemChangedInventorySlots'))
 	

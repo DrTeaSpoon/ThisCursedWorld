@@ -159,7 +159,7 @@ PRIMARY 9-
 
 ULTIMATE 1-
 ULTIMATE 2-
-TREE 2- Killing Spirit - huge single target damage, some blood-for-blood aoe type abilities
+TREE 2- Killing Spirit - huge single target damage, some blood-for-blood (when you kill a target, x happens) aoe type abilities
 TREE 3-
 UBERS-
 

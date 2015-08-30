@@ -128,7 +128,7 @@ function ActivateItem()
 	Abilities.ExecuteAbility( item, queryUnit, false );
 }
 
-function DoubleClickItem()
+function DoubleClickItem() 
 {
 	$.Msg("Double Click");
 	if(fullScreenMode) return false;
@@ -146,10 +146,12 @@ function RightClickItem()
 	//if(fullScreenMode) return;
 	// Not yet!
 	//$.Msg( "Context menu not implemented." );
-	
+	$.Msg("Right Click Item");
 	var ind = $.GetContextPanel().GetAttributeInt( "itemSlot", -1 );
+	$.Msg("Slot" + ind);
 	var ind2 = $.GetContextPanel().GetAttributeInt( "item", -1 );
-	GameEvents.SendCustomGameEventToServer("mmoui_identify_item", {player:Game.GetLocalPlayerID(), item:ind2, itemIndex:ind});
+	$.Msg("Item" + ind2); 
+	GameEvents.SendCustomGameEventToServer("mmoui_identify_item_new", {player:Game.GetLocalPlayerID(), item:ind2, itemIndex:ind});
 }
 
 function OnDragEnter( a, draggedPanel )

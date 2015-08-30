@@ -233,6 +233,7 @@ function RecievedAbilSpecial(abilSpecial, cust)
 			$("#ItemDesc").visible = false;
 		}
 	}
+			$("#ItemDesc").hittest = false;
 	hasAbilSpecial = true;
 	//$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (453.0/324.0)) + "px, -250px, -250px, -250px";
 }
@@ -308,23 +309,20 @@ function UpdateItem()
 		$("#ManaCostText").text = Abilities.GetManaCost(item);
 	}else{
 		$("#ManaCost").visible = false;
-	}
+	}  
 	
-	if(Abilities.GetCooldown(item) > 0){
+	if(Abilities.GetCooldown(item) > 0){ 
 		$("#Cooldown").visible = true;
 		$("#CooldownText").text = Abilities.GetCooldown(item);
 	}else{
 		$("#Cooldown").visible = false
 	}
-	//$.GetContextPanel().style.height = "0px";
-	//$.GetContextPanel().style.height = "0px";
-	//$.GetContextPanel().style.minHeight = "100px";
+			$.GetContextPanel().style.height = "700px";
 	var check = function(){
 		if(hasAbilSpecial && $.GetContextPanel().contentheight != 0){
-		//	$.Msg("SET : " + $.GetContextPanel().contentheight);
-			$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (453.0/324.0)) + "px, -250px, -250px, -250px";
-			$.GetContextPanel().style.height = "fit-children";
-	//$.GetContextPanel().visible = true;
+			$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (1)) + "px, -250px, -250px, -250px";
+			//$.GetContextPanel().style.height = "fit-children";
+			$.GetContextPanel().visible = true;
 			
 		}else if(hasAbilSpecial){
 			$.GetContextPanel().visible = true;
@@ -333,16 +331,13 @@ function UpdateItem()
 			$.Schedule(0.01, check);
 		 
 		}
-		//	$.Msg("ZZZ");
 	}
-			$.Schedule(0.03, check);
-	//$.GetContextPanel().style.height = $.GetContextPanel().contentheight + "px";
+	$.Schedule(0.03, check);
 }
 
 function UpdateItemUnidentified(){
 	$.GetContextPanel().visible = false;
-	//$.GetContextPanel().style.height = "fit-children";
-	//$.GetContextPanel().style.margin = "-" + (300 * (453.0/324.0)) + "px, -250px, -250px, -250px";
+	
 	var itemIndex = $.GetContextPanel().GetAttributeInt( "itemIndex", -1 );
 	item = $.GetContextPanel().GetAttributeInt( "item", -1 );
 	var queryUnit = $.GetContextPanel().GetAttributeInt( "queryUnit", -1 );
@@ -374,10 +369,11 @@ function UpdateItemUnidentified(){
 	$("#Cooldown").visible = false
 	
 	var bad = 0;
+			$.GetContextPanel().style.height = "700px";
 	var check = function(){
 		if(hasAbilSpecial && $.GetContextPanel().contentheight != 0){
-			$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (453.0/324.0)) + "px, -250px, -250px, -250px";
-			$.GetContextPanel().style.height = "fit-children";
+		//	$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (453.0/324.0)) + "px, -250px, -250px, -250px";
+			//$.GetContextPanel().style.height = "fit-children";
 			
 		}else if(hasAbilSpecial){
 			bad = bad + 1;

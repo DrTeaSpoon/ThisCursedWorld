@@ -7,14 +7,16 @@
 	</styles>       
 	          
 	<scripts> 
-		<include src="file://{resources}/scripts/custom_game/char_screen/root.js" />
+		<include src="file://{resources}/scripts/custom_game/char_screen/root.js" /> 
 	</scripts>       
 	    
 		
-	<Panel>
-		<Button id="ClickyButton" onactivate="$('#root').visible = !$('#root').visible"> 
+	<Panel  hittest="false">
+		<Panel id="ClickyButton"  hittest="false">
+			<Button onactivate="$('#root').visible = !$('#root').visible"> 
 			<Label text="CHARACTER SCREEN" />
-		</Button>
+			</Button>
+		</Panel>
 	
 		<Panel id="root" class="rootPanel" hittest="false">
 			

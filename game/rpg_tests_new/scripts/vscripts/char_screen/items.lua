@@ -115,7 +115,7 @@ function Items:ApplyBonuses(item,unit) --Goes through an item, checks if it was 
 	if not itemTable.ided then
 		return
 	end
-
+	Bonus.InitializeBonus(unit)
 	for k,v in pairs(itemTable.CustomStatsCompiled) do
 	--	print("ADD " .. k .. ":" .. v)
 		unit:AddBonus(k,v)
@@ -124,6 +124,7 @@ end
 
 function Items:RemoveBonuses(item, unit)
 	local abilTable = GameRules.ItemDataTable[item:GetEntityIndex()]
+	Bonus.InitializeBonus(unit)
 	for k,v in pairs(abilTable.CustomStatsCompiled) do
 	--	print("REMOVE " .. k .. ":" .. v)
 	--	print("UNIT " .. unit:GetUnitName() )

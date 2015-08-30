@@ -10,20 +10,21 @@
 	</scripts>       
 	    
 	<Panel>  
-		<Panel id="QuestRoot" class="QuestRoot">
-			<Panel id="Background" />
-			<Panel id="Stuff">
-				<Panel id="Title">   
-					<Image id="QuestLog" src="file://{images}/custom_game/ItemIcon058.png" />
-					<Label id="QuestTitle" text="Quest log"/> 
+		<Panel id="QuestRoot" class="QuestRoot" hittest="false">
+			<Panel id="Background" hittest="false" />
+			<Panel id="Stuff" hittest="false">
+				<Panel id="Title" hittest="false">   
+					<Image id="QuestLog" src="file://{images}/custom_game/ItemIcon058.png"  hittest="false"/>
+					<Label id="QuestTitle" text="Quest log" hittest="false"
+					/> 
 					<Button id="MiniPanel" onactivate="OnQuestHide()" >
 						<Label id="MiniLabel" text=" --- " onclick="javascript:$.msg('HI');" />
 					</Button>
 				</Panel> 
-				<Panel id="ContainerPanel">
+				<Panel id="ContainerPanel" hittest="false">
 				</Panel>   
 			</Panel>
-			<Panel id="Compiling" >   
+			<Panel id="Compiling"  hittest="false">   
 				<Image src="file://{images}/custom_game/background.jpg" />
 			</Panel>
 		</Panel>

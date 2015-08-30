@@ -1,5 +1,35 @@
 "DOTAHeroes"
 {
+  "npc_dota_hero_temple_guardian"
+  {
+    "override_hero" "npc_dota_hero_phantom_lancer"
+  }
+  "npc_dota_hero_silversight"
+  {
+    "override_hero" "npc_dota_hero_oracle"
+  }
+  "npc_dota_hero_enforcer"
+  {
+    "override_hero" "npc_dota_hero_skywrath_mage"
+    //fireball, frozen orb, powerstone, forst nova, meteor, lightning shield, trinity nova
+    "AbilityLayout" "6"
+
+    "Ability1" "enforcer_ele_firebolt"
+    "Ability2" "enforcer_ele_frozen_orb"
+    "Ability3" "enforcer_ele_powerstone"
+    "Ability4" "enforcer_ele_frost_nova"
+    "Ability5" "enforcer_ele_meteor"
+    "Ability6" "enforcer_ele_blink"
+    "Ability7" "enforcer_ele_uber_trinity_nova"
+  }
+  "npc_dota_hero_void_hunter"
+  {
+    "override_hero" "npc_dota_hero_phantom_assassin"
+  }
+  "npc_dota_hero_shadow"
+  {
+    "override_hero" "npc_dota_hero_vengeful_spirit"
+  }
   "npc_dota_hero_ancient_apparition_barebones"
   {
     "AbilityLayout"     "6"

@@ -6,7 +6,7 @@
     "BaseClass" "item_datadriven"
     "AbilityTextureName" "item_quelling_blade"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Slot" "Weapon MainhandOnly"
+    "Slot" "Weapon Mainhand"
     "CustomStats"
     {
       "01"
@@ -96,7 +96,7 @@
     "BaseClass" "item_datadriven"
     "AbilityTextureName" "item_blade_of_alacrity"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Slot" "Weapon OffhandOnly"
+    "Slot" "Weapon Offhand"
     "CustomStats"
     {
       "01"
@@ -242,6 +242,8 @@
     "BaseClass" "item_datadriven"
     "AbilityTextureName" "item_belt_of_strength"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Slot" "Belt"
+
     "CustomStats"
     {
       "01"
