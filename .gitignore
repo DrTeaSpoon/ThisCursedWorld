@@ -41,3 +41,24 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Cache crap that Valve autogenerates
+*.bin
+
+# Ignore map overviews
+content/dota_addons/rpg_tests_new/materials/overviews/*
+game/dota_addons/rpg_tests_new/materials/overviews/*
+game/dota_addons/rpg_tests_new/resource/overviews/*
+
+
+# Ignore all particles
+*.vpcf_c
+
+#Ignore all compiled mats
+*.vmat_c
+
+#Ignore all compiled sounds
+*.vsndevts_c
+
+# Map Files
+*.vpk
