@@ -227,21 +227,23 @@ UBERS-
 
 REDEYE (Drow ranger)-
 TREE 1- Elemental Archery
-FUNDAMENTAL 1-
-FUNDAMENTAL 2-
+FUNDAMENTAL 1- Enhanced Arrows - Adds stack of arrows (20?) that are enhanced with base ammount of magical damage. Further levels reduce cooldown. These arrows are effected by most of the primaries.
+FUNDAMENTAL 2- Power shot - Fires arrow (like windrunners ability) dealing magical damage. Primaries may add extra effects. further levels decrease channel time.
 
-PRIMARY 1-
-PRIMARY 2-
-PRIMARY 3-
-PRIMARY 4-
-PRIMARY 5-
-PRIMARY 6-
-PRIMARY 7-
-PRIMARY 8-
-PRIMARY 9-
+Note: 'Element:' skills are like invoker's orbs but you may only have two at same time. But unlike invoker these take mana/cooldown to invoke.
 
-ULTIMATE 1-
-ULTIMATE 2-
+PRIMARY 1- Element: Fire - Abilities do magical damage over time. Damage is based on duration remaining. Further levels give higher duration. Debuf stacks. Passive: Attack/Movement Speed buff
+PRIMARY 2- Element: Water - Abilities reduce magic resistance of target. Passive: High armor buff with magic resistane debuff.
+PRIMARY 3- Element: Lightning - Deals extra magical damage based on the ammount of armor target has. Passive: High movement speed buff with movement speed max removed (just in case). --Note: If you don't know already, you can bypass the movement speed limit with lua modifiers.
+PRIMARY 4- Element: Air - Knocks back target and applies slow based on target's magical resistance (the slow is reduced by magic resistance.). If target has negative magic resistance it is frozen and gets double damage from physical. Passive: Attack range buff
+PRIMARY 5- Element: Light - Causes the effects become AoE. Passive: Vision range buff.
+PRIMARY 6- Element: Shadow - Damage done by abilities causes this hero to blink to target. (does not force you to teleport with fire debuff or other tick effect. Only the OnProjectileHit) Passive: Evasion chance buff.
+PRIMARY 7- Element: Nature - Abilities Root targets in place. Passive: Health/Mana Regen.
+PRIMARY 8- Element: Earth - Abilities cause Stun. Passive: Move slow with High Armor buff
+PRIMARY 9- Element: Blood - Abilities life steal. Passive: Manacost is migated into health cost.
+
+ULTIMATE 1 - Mastery of Elements: Doubles the effects of elements for short duration ( function checking the modifiers runs through them twice. )
+ULTIMATE 2 - Trimentality: Can summon thrid element for the duration.
 
 TREE 2- Naturism
 FUNDAMENTAL 1-
