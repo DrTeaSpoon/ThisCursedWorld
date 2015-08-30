@@ -187,6 +187,25 @@
 			<Panel id="ControlsPanel">
 			</Panel>
 		</Panel>
+		<Panel id="compiling" visible="false">
+			<Image src="file://{resources}/images/items/armor/leather/belt.png" />
+			<Image src="file://{resources}/images/items/armor/leather/boots.png" />
+			<Image src="file://{resources}/images/items/armor/leather/cap.png" />
+			<Image src="file://{resources}/images/items/armor/leather/chest.png" />
+			<Image src="file://{resources}/images/items/armor/leather/gloves.png" />
+			<Image src="file://{resources}/images/items/armor/leather/pants.png" />
+			<Image src="file://{resources}/images/items/armor/leather/shoulders.png" />
+			<Image src="file://{resources}/images/items/jewelry/necklace_soul_talisman.png" />
+			<Image src="file://{resources}/images/items/jewelry/ring_nature_basic.png" />
+			<Image src="file://{resources}/images/items/jewelry/ring_runic.png" />
+			<Image src="file://{resources}/images/items/jewelry/soul_nature_basic.png" />
+			<Image src="file://{resources}/images/items/weapons/axe/copper.png" />
+			<Image src="file://{resources}/images/items/sets/soul_keeper/helm.png" />
+			<Image src="file://{resources}/images/items/sets/soul_keeper/armor.png" />
+			<Image src="file://{resources}/images/items/sets/soul_keeper/gloves.png" />
+			<Image src="file://{resources}/images/items/sets/soul_keeper/necklace.png" />
+			<Image src="file://{resources}/images/items/sets/soul_keeper/staff.png" />
+		</Panel>
 	
 	</Panel>
 </root>

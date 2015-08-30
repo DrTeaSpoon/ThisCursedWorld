@@ -100,7 +100,9 @@
 	height: 64px;
 	background-repeat: round;
 }
-
+#compiling{
+	visibility: collapse;
+}
 #Helm{
 	background-image: url("file://{images}/custom_game/char_screen/inventory/BTNHelmet.png");
 }

@@ -151,7 +151,7 @@ function RightClickItem()
 	$.Msg("Slot" + ind);
 	var ind2 = $.GetContextPanel().GetAttributeInt( "item", -1 );
 	$.Msg("Item" + ind2); 
-	GameEvents.SendCustomGameEventToServer("mmoui_identify_item_new", {player:Game.GetLocalPlayerID(), item:ind2, itemIndex:ind});
+	GameEvents.SendCustomGameEventToServer("mmoui_identify_item", {player:Game.GetLocalPlayerID(), item:ind2, itemIndex:ind});
 }
 
 function OnDragEnter( a, draggedPanel )

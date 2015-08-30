@@ -1,0 +1,17 @@
+<root>  
+       
+	<styles>        
+	</styles>        
+	       
+	<scripts> 
+		<include src="file://{resources}/scripts/custom_game/tooltips.js" />
+	</scripts>       
+	    
+	<Panel class="root" hittest="false">  
+		<Panel id="Container" />
+	</Panel>
+	 
+	 
+	
+</root>
+        

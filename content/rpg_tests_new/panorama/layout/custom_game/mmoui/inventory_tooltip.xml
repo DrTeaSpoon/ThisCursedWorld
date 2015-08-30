@@ -19,6 +19,7 @@
 				</Panel>
 			</Panel>
 			<Label hittest="false"  id="ItemDesc" text="" />
+			<Label hittest="false" id="Slot" text="" />
 			<Panel hittest="false"  id="AbilSpecial" />
 			<Panel  hittest="false" id="Costs"  >
 				<Panel hittest="false"  id="Cooldown" class="CostPanel" >

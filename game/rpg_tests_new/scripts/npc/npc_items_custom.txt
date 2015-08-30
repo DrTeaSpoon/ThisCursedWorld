@@ -45,6 +45,20 @@
       }
     }
   }
+  "item_copper_axe"
+  {
+    "BaseClass" "item_datadriven"
+    "AbilityTextureName" "weapons/axe/copper"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Slot" "Weapon"
+    "CustomStats"
+    {
+      "01"
+      {
+        "DefinedProperty" "RandomMagicalProperty"
+      }
+    }
+  }
   "item_sword_of_the_subjugator"
   {
     "BaseClass" "item_datadriven"
@@ -107,10 +121,10 @@
     }
   }
 
-  "item_basic_soul"
+  "item_forest_soul"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_energy_booster"
+    "AbilityTextureName" "jewelry/soul_nature_basic"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Soul"
     "CustomStats"
@@ -124,10 +138,10 @@
       }
     }
   }
-  "item_basic_helm"
+  "item_leather_cap"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_helm_of_iron_will"
+    "AbilityTextureName" "armor/leather/cap"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Head"
     "CustomStats"
@@ -140,10 +154,10 @@
     }
   }
 
-  "item_basic_shoulders"
+  "item_leather_shoulders"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_mantle"
+    "AbilityTextureName" "armor/leather/shoulders"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Shoulders"
     "CustomStats"
@@ -156,10 +170,10 @@
     }
   }
 
-  "item_basic_chestplate"
+  "item_leather_chestplate"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_chainmail"
+    "AbilityTextureName" "armor/leather/chest"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Chest"
     "CustomStats"
@@ -171,10 +185,10 @@
     }
   }
 
-  "item_basic_gloves"
+  "item_leather_gloves"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_gloves"
+    "AbilityTextureName" "armor/leather/gloves"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Gloves"
     "CustomStats"
@@ -187,10 +201,10 @@
     }
   }
 
-  "item_basic_pants"
+  "item_leather_pants"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_courier"
+    "AbilityTextureName" "armor/leather/pants"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Legs"
     "CustomStats"
@@ -205,10 +219,10 @@
     }
   }
 
-  "item_basic_necklace"
+  "item_soul_talisman"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_talisman_of_evasion"
+    "AbilityTextureName" "jewelry/necklace_soul_talisman"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Necklace"
     "CustomStats"
@@ -221,10 +235,10 @@
     }
   }
 
-  "item_basic_ring"
+  "item_nature_ring_basic"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_ring_of_health"
+    "AbilityTextureName" "jewelry/ring_nature_basic"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Ring"
     "CustomStats"
@@ -237,10 +251,25 @@
     }
   }
 
-  "item_basic_belt"
+  "item_runic_ring_basic"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_belt_of_strength"
+    "AbilityTextureName" "jewelry/ring_runic"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Slot" "Ring"
+    "CustomStats"
+    {
+      "01"
+      {
+        "Damage" "5 10"
+        "Agility" "1 3"
+      }
+    }
+  }
+  "item_leather_belt"
+  {
+    "BaseClass" "item_datadriven"
+    "AbilityTextureName" "armor/leather/belt"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Belt"
 
@@ -254,10 +283,10 @@
     }
   }
 
-  "item_basic_boots"
+  "item_leather_boots"
   {
     "BaseClass" "item_datadriven"
-    "AbilityTextureName" "item_boots"
+    "AbilityTextureName" "armor/leather/boots"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "Slot" "Feet"
     "CustomStats"

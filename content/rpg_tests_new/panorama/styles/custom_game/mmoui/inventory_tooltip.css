@@ -54,17 +54,16 @@
 }
 
 #ItemImage{
-	width: 106px;
+	width: 56px;
 	height: 56px;
-	margin-right: -30px;
+	margin-right: 0px;
 	margin-bottom: 0px;
 	border: 2px solid #111111FF;
 }
 
 #ItemImageContainer{
-	width: 66px;
+	width: 56px;
 	height: 56px;
-	clip: rect(0px, 0px, 100px, 100px);
 	margin-left: 10px;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -90,6 +89,11 @@
 #ItemDesc{
 	margin-left: 5px;
 	font-size: 16px;
+}
+
+#Slot{
+    font-size: 16px;
+	margin-left: 15px;
 }
 
 #AbilSpecial{

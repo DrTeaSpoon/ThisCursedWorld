@@ -37,9 +37,24 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 	for(var i = 1; i <= maxInventoryRows; i++){
 		$('#InventoryRow'+i).AddClass("InventoryRow");
 	}
+	var ComputePanelAbsPosition = function(panel){
+		var xy = {x: 0, y: 0}; 
+		var cc = 0;
+		while(panel.id != "CustomUIRoot" || cc > 30){
+			$.Msg("X : " + panel.actualxoffset);
+			xy.x += panel.actualxoffset;
+			xy.y += panel.actualyoffset;
+			panel = panel.GetParent();
+			cc++;
+		}
+		xy.x *= (1920 / panel.contentwidth);
+		xy.y *= (1080 / panel.contentheight);
+		return xy;
+	}
 	for(var i = 1; i <= maxInventory; i++){ 
 		var x = $('#Inventory'+i);
 		x.AddClass("InventoryItem"); 
+		$.Msg("ABS : " + ComputePanelAbsPosition(x).x);
 		x.slotId = i;  
 		x.item = null;     
 		x.itemPanel = null;   
@@ -51,9 +66,21 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 					}else if(selectedPanel.type == "charm"){
 						//CHARM SWITCH
 					}else{ 
+						$.Msg("EQ TO INV")
+						if(selectedPanel.panel.item){
+							$.Msg("HAS ITEM");
+							if(x.item){
+								$.Msg('1');
+								EquipItem(x.slotId, selectedPanel.panel.slotName);
+							}else{
+								$.Msg('2');
+								UnequipItem(selectedPanel.panel.slotName, x.slotId);
+							}
+							
+						}
 						//EQ SWITCH
 					}
-					selectedPanel = null
+					selectedPanel = null;
 				}else if(x.item){
 					x.itemPanel.data().Highlight();
 					if(!x.itemPanel.data().IsHighlighted()){
@@ -98,10 +125,11 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 							y.itemPanel.data().Highlight();
 						}
 					}else if(selectedPanel.type == "inventory"){
-						UnequipItem(y.slotName, selectedPanel.slot);
+						EquipItem(selectedPanel.panel.slotId, y.slotName);
 					}else{
 					
 					}
+					selectedPanel = null;
 				}else{
 					y.itemPanel.data().Highlight();
 					selectedPanel = {type: "equipment", slot: y.slotName, panel: y};
@@ -109,7 +137,12 @@ var ITEM_CHANGE_SLOT_EVENT = "custom_inventory_on_item_change_position" //L-P
 			});
 		}(y));
 		allEquipmentPanels.push(y);
-	}
+	} 
+	
+	//function Precache(str){
+	//	$('#comp').SetImage("file://{resources}/images/items/armor/leather/boots.png");
+	//}
+	//Precache();
 
 function GenerateItem(parent,ided,stats){
 	var abilityPanel = $.CreatePanel( "Panel", parent, "" );
@@ -129,7 +162,7 @@ function ClearItem(parent){
 }
 
 var selectedPanel = null;
-
+ 
 function SwitchInventoryPanels(panelA, panelB){
 	if(!panelA.item){
 		panelB.ided = panelB.itemPanel.data().ided;
@@ -141,7 +174,7 @@ function SwitchInventoryPanels(panelA, panelB){
 		panelB.ided = null;
 		panelB.stats = null;
 		
-		ClearItem(panelB);
+		FullClearItem(panelB);
 		GenerateItem(panelA, panelA.ided, panelA.stats);
 		var t = {player:Game.GetLocalPlayerID(), item:panelA.item, slot:panelA.slotId}
 		GameEvents.SendCustomGameEventToServer(ITEM_CHANGE_SLOT_EVENT, t );
@@ -155,7 +188,7 @@ function SwitchInventoryPanels(panelA, panelB){
 		panelA.ided = null; 
 		panelA.stats = null;
 		
-		ClearItem(panelA);
+		FullClearItem(panelA);
 		GenerateItem(panelB, panelB.ided, panelB.stats);
 		var t = {player:Game.GetLocalPlayerID(), item:panelB.item, slot:panelB.slotId}
 		GameEvents.SendCustomGameEventToServer(ITEM_CHANGE_SLOT_EVENT, t );
@@ -191,9 +224,7 @@ function SwitchInventoryPanels(panelA, panelB){
 
 /*Unequips the equipment item in *slot*. Optionally, specify "toSlot" to swap to a specified inventory slot / equip the item at toSlot */
 function UnequipItem(slot, toSlot){ 
-	$.Msg("UNEQUIPUFNDSAJFNSPDFIASDF");
 	var equipmentPanel = $('#'+slot); //Equipment panel
-	$.Msg("Unequip Item " + slot);
 
 	if(toSlot){ //Not double clicked - click eq than click something else
 		var toPanel = $('#Inventory'+toSlot); //The inventory item
@@ -221,7 +252,7 @@ function UnequipItem(slot, toSlot){
 				inventoryPanel.ided = equipmentPanel.ided;
 				inventoryPanel.stats = equipmentPanel.stats;
 				GenerateItem(inventoryPanel,inventoryPanel.ided,inventoryPanel.stats);
-				ClearItem(equipmentPanel);
+				FullClearItem(equipmentPanel);
 				
 			}
 		}
@@ -368,12 +399,25 @@ function EquipItem(inventorySlot, equipmentSlot){
 	}else if(slot.toLowerCase() == "soul"){
 		if(targetSlot){
 			if(targetSlot.toLowerCase() == "soulleft" || targetSlot.toLowerCase() == "soulright"){
-				
+				if(targetSlot.toLowerCase() == "soulleft"){
+					targetSlot = "SoulLeft";
+				}else{
+					targetSlot = "SoulRight";
+				}
 			}else{
 				return;
 			}
-		}else{
-			targetSlot = "SoulLeft";
+		}else{ 
+			if(!$('#SoulLeft').item){
+				$.Msg('FIRST UNOCC');
+				targetSlot = "SoulLeft";
+			}else if(!$('#SoulRight').item){
+				$.Msg('2 UNOCC');
+				targetSlot = "SoulRight";
+			}else{ 
+				$.Msg('BOTH OCC');
+				targetSlot = "SoulLeft";
+			}
 		}
 		
 		var corWeapon;
@@ -473,7 +517,7 @@ function AddItemToInventory(item, slot, ided, stats){
 			$.Msg("Your Inventory is Full");
 			return;
 		}
-		ClearItem(panel); 
+		FullClearItem(panel); 
 		panel.item = item;
 		panel.ided = ided;
 		panel.stats = stats;
@@ -574,7 +618,7 @@ function AddItemToEquipment(item, slot, invBypass){
 		}
 		
 		target.item = item;
-		ClearItem(target);
+		FullClearItem(target);
 		GenerateItem(target);
 		
 		var t = {player:Game.GetLocalPlayerID(), item:item};
@@ -622,7 +666,7 @@ function FullClearArray(arr){
 function OnRecieveFullUpdate(keys){ 
 	$.Msg("Full Update");
 	var equipment = keys.equipment
-	var charms = keys.charms
+	var charms = keys.charms 
 	var items = keys.inventory
 	
 	FullClearArray(allEquipmentPanels);

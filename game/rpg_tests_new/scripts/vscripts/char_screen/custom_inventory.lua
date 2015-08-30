@@ -151,17 +151,30 @@ function CustomInventory:UnEquipCharm(item, hero)
 
 end
 
-function CustomInventory:OnItemPickup(item, hero)
+function CustomInventory:OnItemPickup(item, hero, isUnequip, targetSlot)
 	Items:SetupItem(item)
 	if Items:IsCustomItem(item) then
+		if isUnequip then
+			if targetSlot then
+				local tt = {}
+				playerTable["slot"..CustomInventory:_Pad(targetSlot)] = tt
+				tt.item = item
+				tt.entIndex = item:GetEntityIndex()
+				tt.primary = true
+				tt.slot = targetSlot
+				tt.stats = Items:GetAbilitySpecial(item)
+				tt.ided = Items:IsIdentified(item)
+			else
+				local slot = CustomInventory:_FindFreeSlot(item,hero, Items:GetAbilitySpecial(item), Items:IsIdentified(item))
+			end
+		else
+			hero:DropItemAtPositionImmediate(item, hero:GetAbsOrigin())
+			item:SetAbsOrigin(Vector(0,0,0))
+			item:SetOwner(hero)
 
-		hero:DropItemAtPositionImmediate(item, hero:GetAbsOrigin())
-		item:SetAbsOrigin(Vector(0,0,0))
-		item:SetOwner(hero)
-
-		local slot = CustomInventory:_FindFreeSlot(item,hero, Items:GetAbilitySpecial(item), Items:IsIdentified(item))
-		CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), ADD_ITEM_EVENT, {player=hero:GetPlayerOwnerID(), slot=slot, item=item:GetEntityIndex(), ided=Items:IsIdentified(item), stats=Items:GetAbilitySpecial(item)})
-
+			local slot = CustomInventory:_FindFreeSlot(item,hero, Items:GetAbilitySpecial(item), Items:IsIdentified(item))
+			CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), ADD_ITEM_EVENT, {player=hero:GetPlayerOwnerID(), slot=slot, item=item:GetEntityIndex(), ided=Items:IsIdentified(item), stats=Items:GetAbilitySpecial(item)})
+		end
 	end
 
 end
@@ -198,7 +211,7 @@ function CustomInventory:OnItemUnequipped(keys)
 	local player = keys.player
 	local target = keys.targetSlot
 	local unit = PlayerResource:GetPlayer(player):GetAssignedHero()
-	CustomInventory:OnItemPickup(EntIndexToHScript(item), unit)
+	CustomInventory:OnItemPickup(EntIndexToHScript(item), unit, true, target)
 	Items:RemoveBonuses(EntIndexToHScript(item), unit)
 
 end

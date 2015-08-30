@@ -2,14 +2,10 @@ require("bonus")
 require("char_screen/custom_inventory")
 require("char_screen/items")
 GameRules.ItemDataTable = GameRules.ItemDataTable or {}
-
+local needsMMOInit = false
 if not MMOUI then
 	MMOUI = {}
-	CustomGameEventManager:RegisterListener( "mmoui_get_int_property", Dynamic_Wrap(MMOUI, 'getInt'))
-	CustomGameEventManager:RegisterListener( "mmoui_get_abil_special", Dynamic_Wrap(MMOUI, 'getTable'))
-	CustomGameEventManager:RegisterListener( "mmoui_get_class", Dynamic_Wrap(MMOUI, 'getClassification'))
-	CustomGameEventManager:RegisterListener( "mmoui_get_identified", Dynamic_Wrap(MMOUI, 'getIdentified'))
-	CustomGameEventManager:RegisterListener( "inventory_updated", Dynamic_Wrap(MMOUI, 'OnInventoryChanged'))
+	needsMMOInit = true
 end
 local lastTable = nil
 lastItems = lastItems or {} 
@@ -94,7 +90,7 @@ function OnIdentifyItemCastFinished(keys) --When the abil finishes, tell everyon
 	CustomGameEventManager:Send_ServerToAllClients("mmoui_on_item_identified", {player=killedUnit:GetPlayerOwnerID(), item=lastId:GetEntityIndex()})
 end
 
-function MMOUI:identifyItem(keys) --Identifies the given item
+function MMOUI:IdentifyItem(keys) --Identifies the given item
 	print("ID ITEM! : " .. keys.itemIndex)
 	print("PLAYER ! .. " .. keys.player)
 	local item = EntIndexToHScript(keys.item)
@@ -160,5 +156,11 @@ function MMOUI.getInt(keys) --unused
 		CustomGameEventManager.Send_ServerToAllClients("mmoui_return_int_property", {player=keys.player, propertyId=keys.propertyId, value=keys.unit:GetAbilityPoints()})
 	end
 end
-
-	CustomGameEventManager:RegisterListener( "mmoui_identify_item", MMOUI.identifyItem)
+if needsMMOInit then
+	CustomGameEventManager:RegisterListener( "mmoui_get_int_property", Dynamic_Wrap(MMOUI, 'getInt'))
+	CustomGameEventManager:RegisterListener( "mmoui_get_abil_special", Dynamic_Wrap(MMOUI, 'getTable'))
+	CustomGameEventManager:RegisterListener( "mmoui_get_class", Dynamic_Wrap(MMOUI, 'getClassification'))
+	CustomGameEventManager:RegisterListener( "mmoui_get_identified", Dynamic_Wrap(MMOUI, 'getIdentified'))
+	CustomGameEventManager:RegisterListener( "inventory_updated", Dynamic_Wrap(MMOUI, 'OnInventoryChanged'))
+	CustomGameEventManager:RegisterListener( "mmoui_identify_item", Dynamic_Wrap(MMOUI, 'IdentifyItem'))
+end

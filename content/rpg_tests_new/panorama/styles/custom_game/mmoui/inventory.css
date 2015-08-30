@@ -106,9 +106,9 @@
 }
 
 #ItemImage{
-	width: 82px;
-	height: 50px;
-	margin-right: -22px;
+	margin-top: -1px;
+	width: 54px;
+	height: 54px;
 	vertical-align: center;
 	horizontal-align: center;
 	background-color: white;

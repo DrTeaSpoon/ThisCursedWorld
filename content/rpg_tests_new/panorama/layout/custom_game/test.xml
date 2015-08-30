@@ -1,0 +1,23 @@
+<root>  
+       
+	<styles>        
+		<include src="file://{resources}/styles/custom_game/quest.css" />
+		<include src="file://{resources}/styles/custom_game/test.css" />
+	</styles>        
+	       
+	<scripts> 
+		<include src="file://{resources}/scripts/custom_game/test.js" />
+	</scripts>       
+	    
+	<Panel class="root" hittest="false">  
+		<Panel id="All">
+			<Panel id="Yellow" />
+			<Panel id="Red" />
+		
+		</Panel>
+	</Panel>
+	 
+	 
+	
+</root>
+        

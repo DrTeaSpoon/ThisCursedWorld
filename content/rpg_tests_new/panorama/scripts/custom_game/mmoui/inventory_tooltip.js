@@ -21,7 +21,7 @@ function GetColor(color){
 	}
 }
 
-function RecievedAbilSpecial(abilSpecial, cust)
+function RecievedAbilSpecial(abilSpecial, cust, requirements)
 {
 	if(!abilSpecial){
 		hasAbilSpecial = true;
@@ -30,6 +30,11 @@ function RecievedAbilSpecial(abilSpecial, cust)
 	if(ided == 0){ //isUnid'd
 		hasAbilSpecial = true;
 		return;
+	}
+	if(requirements){
+		$('#Slot').text = "Slot: " + requirements.slot;
+	}else{
+		$('#Slot').visible = false;
 	}
 	//$.GetContextPanel().style.height = "fit-children";
 	var spc = $('#AbilSpecial');
@@ -317,10 +322,18 @@ function UpdateItem()
 	}else{
 		$("#Cooldown").visible = false
 	}
-			$.GetContextPanel().style.height = "700px";
+			$.GetContextPanel().style.height = "600px";
 	var check = function(){
-		if(hasAbilSpecial && $.GetContextPanel().contentheight != 0){
-			$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (1)) + "px, -250px, -250px, -250px";
+		if(hasAbilSpecial && $.GetContextPanel().contentheight != 0){ 
+			$.Msg("HEIGHT : " + $.GetContextPanel().contentheight);
+			if($.GetContextPanel().contentheight < 250){
+				$.Msg("OVERRIDE");
+				var x = "-" + $.GetContextPanel().contentheight + "px, ";
+				$.GetContextPanel().style.margin = x+x+x+"-"+$.GetContextPanel().contentheight + "px";
+			}else{
+				$.GetContextPanel().style.margin = "-" + ($.GetContextPanel().contentheight * (1)) + "px, -250px, -250px, -250px";
+			}
+				
 			//$.GetContextPanel().style.height = "fit-children";
 			$.GetContextPanel().visible = true;
 			
@@ -398,7 +411,7 @@ function onAbilSpecial(data)
 	if(index != $.GetContextPanel().GetAttributeInt( "itemIndex", -1 )){
 		return;
 	}
-	RecievedAbilSpecial(data.itemTable, data.customTable);
+	RecievedAbilSpecial(data.itemTable, data.customTable.custom, data.customTable.requirements);
 }
 (function()
 {
@@ -413,7 +426,7 @@ function onAbilSpecial(data)
 			UpdateItemUnidentified(); 
 		}
 			$('#UnidImage').visible = !ided;
-			RecievedAbilSpecial(itemStats.basic, itemStats.custom);
+		RecievedAbilSpecial(itemStats.basic, itemStats.custom, itemStats.requirements);
 	}else{
 		GameEvents.Subscribe("mmoui_return_abil_special", onAbilSpecial); 
 		 

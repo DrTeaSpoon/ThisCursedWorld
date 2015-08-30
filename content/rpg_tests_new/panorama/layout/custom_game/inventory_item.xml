@@ -9,9 +9,7 @@
 	</scripts>
 	<Panel class="ItemPanel" draggable="true">
 		<Button id="ItemButton">
-			<Panel id="ItemImageClip">
 				<DOTAItemImage  id="ItemImage" scaling="stretch" />
-			</Panel>
 			<Panel id="Cooldown">
 				<Panel id="CooldownOverlay" />
 				<Label id="CooldownTimer" />

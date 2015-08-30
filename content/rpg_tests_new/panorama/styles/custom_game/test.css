@@ -1,0 +1,15 @@
+.root{
+	width: 1920px;
+	height: 1080px;
+}
+
+#All{
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	horizontal-align: center;   
+}
+#Yellow{
+	width: 20px;
+	height: 20px;
+}
